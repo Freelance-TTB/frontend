@@ -18,12 +18,14 @@ export default function Option () {
       {
         id: 1,
         title: 'Sales',
-        icon: PointOfSaleIcon
+        icon: PointOfSaleIcon,
+        router: '/sales'
       },
       {
         id: 2,
         title: 'Purchases',
-        icon: ShoppingCartIcon
+        icon: ShoppingCartIcon,
+        router: '/purchase'
       },
       {
         id: 3,

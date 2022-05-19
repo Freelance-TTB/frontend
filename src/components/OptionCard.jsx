@@ -15,7 +15,7 @@ import {
 export default function OptionCard ({ item }) {
   const navigate = useNavigate()
   function cardPage () {
-    navigate(`/sales`)
+    navigate(item.router)
   }
 
   return (
