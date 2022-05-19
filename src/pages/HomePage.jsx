@@ -11,7 +11,7 @@ import {
 import Navbar from '../components/Navbar';
 import Option from '../components/Option';
 import Hutang from "../components/Hutang";
-// import PenjualanPembelian from "../components/PenjualanPembelian";
+import PenjualanPembelian from "../components/PenjualanPembelian";
 import KasBank from "../components/KasBank";
 
 export default function HomePage() {
@@ -20,7 +20,7 @@ export default function HomePage() {
       <Box sx={{ mx: 2}}>
         <Option/>
         <Hutang/>
-        {/* <PenjualanPembelian/> */}
+        <PenjualanPembelian/>
         <KasBank/>
       </Box>
     </Box>

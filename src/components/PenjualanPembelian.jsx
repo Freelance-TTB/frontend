@@ -10,40 +10,34 @@ import {
   Paper
 } from '@mui/material'
 
-import {
-  Chart,
-  BarSeries,
-  Title,
-  ArgumentAxis,
-  ValueAxis,
-} from '@devexpress/dx-react-chart-material-ui';
+import Chart from 'react-apexcharts'
 
-import { Animation } from '@devexpress/dx-react-chart';
+const options = {
+  chart: {
+    type: 'bar'
+  },
+  plotOptions: {
+    bar: {
+      horizontal: true
+    }
+  },
+  xaxis: {
+    categories: ['Penjualan', 'Pembelian']
+  }
+}
 
-const data = [
-  { type: 'Pembelian', price: 2525 },
-  { type: 'Penjualan', price: 3018 }
-];
+const series = [
+  {
+    name: 'Nominal (Rp)',
+    data: [1000, 2000]
+  }
+]
+
 
 export default function PenjualanPembelian() {
   return (
     <Box sx={{my: 5}}>
-      <Paper>
-        <Chart
-          data={data}
-          rotated
-        >
-          <ArgumentAxis />
-          <ValueAxis max={7} />
-
-          <BarSeries
-            valueField="price"
-            argumentField="type"
-          />
-          <Title text="Penjualan dan Pembelian" />
-          <Animation />
-        </Chart>
-      </Paper>
+      <Chart options={options} series={series} type="bar" height={200}/>
     </Box>
   )
 }
