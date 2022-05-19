@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.left-col {
+    float: left;
+    width:30%;
+    text-align: center
+}
+.center-col {
+    float: left;
+    width: 35%;
+    text-align: center;
+}
+.right-col {
+    float: left;
+    width: 30%;
+    text-align: center
+}
+
