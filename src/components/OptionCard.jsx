@@ -1,23 +1,31 @@
 import React from 'react'
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
+
 import { 
+  Card,
+  CardActions,
   CardActionArea,
-  Grid
+  CardContent,
+  CardMedia,
+  Button,
+  Grid,
+  Typography
 } from '@mui/material';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
 export default function OptionCard() {
+  const navigate = useNavigate()
+
+  function cardPage() {
+    navigate(`/sales`)
+  }
+
   return (
     <Card>
-      <CardActionArea>  
-        <CardContent
-
-        >
+      <CardActionArea
+        onClick={() => cardPage()}
+      >  
+        <CardContent>
           <Grid container spacing={1}>
             <Grid item xs={12} 
               sx={{

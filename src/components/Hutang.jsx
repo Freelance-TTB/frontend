@@ -25,7 +25,7 @@ export default function Hutang() {
       </Box>
 
       <Grid container spacing={1} sx={{mb: 2}}>
-        <Grid item xs={2}>
+        <Grid item xs={1}>
           <Typography
             sx={{
               p: 2
@@ -34,11 +34,11 @@ export default function Hutang() {
             Pelanggan
           </Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={11}>
           <Box
             sx={{
-              border: 1,
               borderRadius: 10,
+              bgcolor: '#C8C8C8',
               p: 1,
               m: 1
             }}
@@ -49,7 +49,7 @@ export default function Hutang() {
       </Grid>
 
       <Grid container spacing={1} sx={{mb: 2}}  >
-        <Grid item xs={2}>
+        <Grid item xs={1}>
           <Typography
             sx={{
               p: 2
@@ -58,11 +58,11 @@ export default function Hutang() {
             Pelanggan
           </Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={11}>
           <Box
             sx={{
-              border: 1,
               borderRadius: 10,
+              bgcolor: '#C8C8C8',
               p: 1,
               m: 1
             }}

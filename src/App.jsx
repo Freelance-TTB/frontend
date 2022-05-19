@@ -5,32 +5,56 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import {
-  Box,
-  Button,
-  AppBar,
-  Grid,
-  Toolbar,
-  Typography,
-  IconButton
-} from '@mui/material'
-import Navbar from './components/Navbar';
-import Option from './components/Option';
-import Hutang from "./components/Hutang";
-import PenjualanPembelian from "./components/PenjualanPembelian";
-import KasBank from "./components/KasBank";
+
+import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
+import SalesPage from "./pages/SalesPage";
+import PurchasePage from "./pages/PurchasePage";
+import AccountPage from "./pages/AccountPage";
 
 function App() {
   return (
-    <Box>
+    <Router>
       <Navbar/>
-      <Box sx={{ mx: 2}}>
-        <Option/>
-        <Hutang/>
-        <PenjualanPembelian/>
-        <KasBank/>
-      </Box>
-    </Box>
+      <Routes>
+        <Route>
+          <Route path="/"  element={
+            <HomePage/>
+          }/>
+        </Route>
+        <Route>
+          <Route path="/sales"  element={
+            <SalesPage/>
+          }/>
+        </Route>
+        <Route>
+          <Route path="/purchase"  element={
+            <PurchasePage/>
+          }/>
+        </Route>
+        <Route>
+          <Route path="/account"  element={
+            <AccountPage/>
+          }/>
+        </Route>
+        <Route>
+          <Route path="/accounting"  element={
+            <HomePage/>
+          }/>
+        </Route>
+        <Route>
+          <Route path="/apps"  element={
+            <HomePage/>
+          }/>
+        </Route>
+        <Route>
+          <Route path="/settings"  element={
+            <HomePage/>
+          }/>
+        </Route>
+      </Routes>
+    </Router>
+
   );
 }
 
