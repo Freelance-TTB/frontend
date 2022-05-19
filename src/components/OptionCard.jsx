@@ -1,7 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
-import { 
+import {
   Card,
   CardActions,
   CardActionArea,
@@ -10,39 +10,39 @@ import {
   Button,
   Grid,
   Typography
-} from '@mui/material';
-import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
+} from '@mui/material'
 
-export default function OptionCard() {
+export default function OptionCard ({ item }) {
   const navigate = useNavigate()
-
-  function cardPage() {
+  function cardPage () {
     navigate(`/sales`)
   }
 
   return (
     <Card>
-      <CardActionArea
-        onClick={() => cardPage()}
-      >  
+      <CardActionArea onClick={() => cardPage()}>
         <CardContent>
           <Grid container spacing={1}>
-            <Grid item xs={12} 
+            <Grid
+              item
+              xs={12}
               sx={{
                 display: 'flex',
                 justifyContent: 'center'
               }}
             >
-              <PointOfSaleIcon fontSize='large'/>
+              <item.icon fontSize='large' />
             </Grid>
-            <Grid item xs={12}
+            <Grid
+              item
+              xs={12}
               sx={{
                 display: 'flex',
                 justifyContent: 'center'
               }}
             >
-              <Typography gutterBottom variant="h5" component="div">
-                Sales
+              <Typography gutterBottom variant='h5' component='div'>
+                {item.title}
               </Typography>
             </Grid>
           </Grid>
