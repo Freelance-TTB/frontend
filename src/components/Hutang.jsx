@@ -2,6 +2,7 @@ import React from 'react'
 import {
   Box,
   Button,
+  Card,
   AppBar,
   Grid,
   Toolbar,
@@ -11,7 +12,8 @@ import {
 
 export default function Hutang() {
   return (
-    <Box sx={{border: 1, my: 5}}>
+    // <Box sx={{border: 1, borderRadius: 5,  my: 5}}>
+    <Card variant="outlined">
       <Box
         sx={{
           display: 'flex',
@@ -19,7 +21,7 @@ export default function Hutang() {
           mb: 3
         }}
       >
-        <Typography variant="h5">
+        <Typography variant="h4" sx={{ m: 3 }}>
           Hutang
         </Typography>
       </Box>
@@ -40,8 +42,10 @@ export default function Hutang() {
             sx={{
               borderRadius: 10,
               bgcolor: '#C8C8C8',
-              p: 1,
-              m: 1
+              px: 3,
+              py: 1,
+              my: 1,
+              mx: 3
             }}
           >
             Rp 0
@@ -57,7 +61,7 @@ export default function Hutang() {
               p: 2
             }}
           >
-            Pelanggan
+            Pembelian
           </Typography>
         </Grid>
         <Grid item xs={10}>
@@ -65,15 +69,17 @@ export default function Hutang() {
             sx={{
               borderRadius: 10,
               bgcolor: '#C8C8C8',
-              p: 1,
-              m: 1
+              px: 3,
+              py: 1,
+              my: 1,
+              mx: 3
             }}
           >
             Rp 0
           </Box>
         </Grid>
       </Grid>
-      
-    </Box>
+    </Card>
+    // </Box>
   )
 }

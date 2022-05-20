@@ -2,7 +2,7 @@ import React from 'react'
 import {
   Box,
   Button,
-  AppBar,
+  Card,
   Grid,
   Toolbar,
   Typography,
@@ -18,12 +18,14 @@ const options = {
   },
   plotOptions: {
     bar: {
-      horizontal: true
+      horizontal: true,
+      distributed: true
     }
   },
   xaxis: {
     categories: ['Penjualan', 'Pembelian']
-  }
+  },
+  colors: ['#85C88A', '#F44336']
 }
 
 const series = [
@@ -36,8 +38,17 @@ const series = [
 
 export default function PenjualanPembelian() {
   return (
-    <Box sx={{my: 5}}>
+    <Card variant="outlined" sx={{my: 5}}>
+      <Box sx={{mx: 3}}>
+        <Typography
+          align='center'
+          sx={{ m: 3 }}
+          variant="h4"
+        >
+          Penjualan & Pembelian
+        </Typography>
       <Chart options={options} series={series} type="bar" height={200}/>
-    </Box>
+      </Box>
+    </Card>
   )
 }
