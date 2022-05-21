@@ -1,0 +1,1 @@
+export const FETCH_SUPPLIERS = 'FETCH_SUPPLIERS'

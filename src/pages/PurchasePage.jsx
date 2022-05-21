@@ -1,20 +1,19 @@
-import { styled } from '@mui/material/styles'
-import { Grid, Paper } from '@mui/material'
+import { Grid } from '@mui/material'
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import CardPurchase from '../components/CardPurchase'
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary
-}))
+import TableSupplier from '../components/TableSupplier'
+import { actionFetchSuppliers } from '../store/actions/purchase'
 
 export default function PurchasePage () {
+  const dispatch = useDispatch()
   const [isActive, setIsActive] = useState(false)
   const [isName, setIsName] = useState('')
   const [isMenuPurchase, setIsMenuPurchase] = useState([])
+  const { suppliers } = useSelector(state => state.purchaseState)
+  useEffect(() => {
+    dispatch(actionFetchSuppliers())
+  }, [])
 
   useEffect(() => {
     const dataMenuPurchase = [
@@ -178,6 +177,63 @@ export default function PurchasePage () {
               </button>
             </Grid>
           </Grid>
+          <h3 style={{ textAlign: 'center', marginTop: 10 }}>List Supplier</h3>
+        </div>
+      </div>
+
+      <div class='container' style={{ marginBottom: 70, marginTop: 25 }}>
+        <div class='table-wrapper-scroll-y my-custom-scrollbar'>
+          <table class='table table-borderless table-striped-purchase table-hover'>
+            <thead>
+              <tr>
+                <th
+                  scope='col'
+                  style={{
+                    backgroundColor: '#026A74',
+                    color: 'white',
+                    width: '4%'
+                  }}
+                >
+                  No
+                </th>
+                <th
+                  scope='col'
+                  style={{
+                    backgroundColor: '#026A74',
+                    color: 'white',
+                    width: '35%'
+                  }}
+                >
+                  Nama
+                </th>
+                <th
+                  scope='col'
+                  style={{
+                    backgroundColor: '#026A74',
+                    color: 'white',
+                    width: '35%'
+                  }}
+                >
+                  Alamat
+                </th>
+                <th
+                  scope='col'
+                  style={{
+                    backgroundColor: '#026A74',
+                    color: 'white',
+                    width: '35%'
+                  }}
+                >
+                  Total Deposit
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {suppliers.map(supplier => {
+                return <TableSupplier key={supplier.id} supplier={supplier} />
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
