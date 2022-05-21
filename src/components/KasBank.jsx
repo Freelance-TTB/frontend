@@ -1,17 +1,32 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+
 import {
   Box,
   Button,
   AppBar,
+  Card,
   Grid,
   Toolbar,
   Typography,
   IconButton
 } from '@mui/material'
 
+const banks = [
+  {id: 1, name: 'BNI'},
+  {id: 2, name: 'BCA'},
+  {id: 3, name: 'Mandiri'},
+  {id: 4, name: 'BRI'},
+  {id: 5, name: 'CIMB'},
+  {id: 6, name: 'BSI'},
+  {id: 7, name: 'Kas'},
+  {id: 8, name: 'Bank Jago'},
+]
+
 export default function KasBank() {
+
   return (
-    <Box sx={{border: 1, my: 5}}>
+    <Card variant="outlined" sx={{mb: 5}}>
       <Box
         sx={{
           display: 'flex',
@@ -19,203 +34,46 @@ export default function KasBank() {
           mb: 3
         }}
       >
-        <Typography variant="h5">
+        <Typography variant="h4" sx={{ m: 3 }}>
           Kas dan Bank
         </Typography>
       </Box>
 
-      <Grid container spacing={1} sx={{mb: 2}}>
-        <Grid item xs={2}>
-          <Typography
-            sx={{
-              p: 2
-            }}
-          >
-            BNI
-          </Typography>
-        </Grid>
-        <Grid item xs={10}>
-          <Box
-            sx={{
-              border: 1,
-              borderRadius: 10,
-              p: 1,
-              m: 1
-            }}
-          >
-            Rp 0
-          </Box>
-        </Grid>
-      </Grid>
+      <Box>
+      {
+        banks.map((bank, index) => {
+          return (
+            <Grid container spacing={1} sx={{mb: 2}}>
+              <Grid item xs={2}>
+                <Typography
+                  sx={{
+                    p: 2,
+                    ml: 3
+                  }}
+                >
+                  {bank.name}
+                </Typography>
+              </Grid>
+              <Grid item xs={10}>
+                <Box
+                  sx={{
+                    borderRadius: 10,
+                    bgcolor: '#C8C8C8',
+                    px: 3,
+                    py: 1,
+                    my: 1,
+                    mx: 3
+                  }}
+                >
+                  Rp 0
+                </Box>
+              </Grid>
+            </Grid>
+          )
+        })
+      }
+      </Box>
 
-      <Grid container spacing={1} sx={{mb: 2}}  >
-        <Grid item xs={2}>
-          <Typography
-            sx={{
-              p: 2
-            }}
-          >
-            BCA
-          </Typography>
-        </Grid>
-        <Grid item xs={10}>
-          <Box
-            sx={{
-              border: 1,
-              borderRadius: 10,
-              p: 1,
-              m: 1
-            }}
-          >
-            Rp 0
-          </Box>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={1} sx={{mb: 2}}  >
-        <Grid item xs={2}>
-          <Typography
-            sx={{
-              p: 2
-            }}
-          >
-            Mandiri
-          </Typography>
-        </Grid>
-        <Grid item xs={10}>
-          <Box
-            sx={{
-              border: 1,
-              borderRadius: 10,
-              p: 1,
-              m: 1
-            }}
-          >
-            Rp 0
-          </Box>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={1} sx={{mb: 2}}  >
-        <Grid item xs={2}>
-          <Typography
-            sx={{
-              p: 2
-            }}
-          >
-            BRI
-          </Typography>
-        </Grid>
-        <Grid item xs={10}>
-          <Box
-            sx={{
-              border: 1,
-              borderRadius: 10,
-              p: 1,
-              m: 1
-            }}
-          >
-            Rp 0
-          </Box>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={1} sx={{mb: 2}}  >
-        <Grid item xs={2}>
-          <Typography
-            sx={{
-              p: 2
-            }}
-          >
-            CIMB
-          </Typography>
-        </Grid>
-        <Grid item xs={10}>
-          <Box
-            sx={{
-              border: 1,
-              borderRadius: 10,
-              p: 1,
-              m: 1
-            }}
-          >
-            Rp 0
-          </Box>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={1} sx={{mb: 2}}  >
-        <Grid item xs={2}>
-          <Typography
-            sx={{
-              p: 2
-            }}
-          >
-            BSI
-          </Typography>
-        </Grid>
-        <Grid item xs={10}>
-          <Box
-            sx={{
-              border: 1,
-              borderRadius: 10,
-              p: 1,
-              m: 1
-            }}
-          >
-            Rp 0
-          </Box>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={1} sx={{mb: 2}}  >
-        <Grid item xs={2}>
-          <Typography
-            sx={{
-              p: 2
-            }}
-          >
-            Kas
-          </Typography>
-        </Grid>
-        <Grid item xs={10}>
-          <Box
-            sx={{
-              border: 1,
-              borderRadius: 10,
-              p: 1,
-              m: 1
-            }}
-          >
-            Rp 0
-          </Box>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={1} sx={{mb: 2}}  >
-        <Grid item xs={2}>
-          <Typography
-            sx={{
-              p: 2
-            }}
-          >
-            Bank Jago
-          </Typography>
-        </Grid>
-        <Grid item xs={10}>
-          <Box
-            sx={{
-              border: 1,
-              borderRadius: 10,
-              p: 1,
-              m: 1
-            }}
-          >
-            Rp 0
-          </Box>
-        </Grid>
-      </Grid>
-      
-    </Box>
+    </Card>
   )
 }

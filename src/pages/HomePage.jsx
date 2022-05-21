@@ -17,7 +17,7 @@ import KasBank from "../components/KasBank";
 export default function HomePage() {
   return (
     <Box>
-      <Box sx={{ mx: 2}}>
+      <Box sx={{ mx: 5}}>
         <Option/>
         <Hutang/>
         <PenjualanPembelian/>
