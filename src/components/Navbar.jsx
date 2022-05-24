@@ -71,7 +71,7 @@ export default function Navbar() {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
-              sx={{border: 1, borderRadius: 5}}
+              sx={{border: 1, borderRadius: 5, mx: 1}}
             >
               {(() => {
                 if (open) {

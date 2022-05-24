@@ -1,7 +1,7 @@
-export default function PurchasePage () {
+import React from 'react'
+
+export default function PurchasePage() {
   return (
-    <div>
-      <h3>Purchase Page</h3>
-    </div>
+    <div>PurchasePage</div>
   )
 }
