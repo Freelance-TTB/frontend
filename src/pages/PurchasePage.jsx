@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+import React from 'react'
+
+export default function PurchasePage() {
+  return (
+    <div>PurchasePage</div>
+=======
 import { Grid } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -300,5 +307,6 @@ export default function PurchasePage () {
         </div>
       </div>
     </div>
+>>>>>>> c962562b7958161af9d6be2bd9684cabbd489482
   )
 }
