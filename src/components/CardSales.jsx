@@ -1,4 +1,7 @@
 import ChartPenjualan from "./ChartPenjualan"
+import { 
+  Button
+} from '@mui/material'
 
 export default function CardPurchase ({ purchase }) {
   return (
@@ -7,13 +10,9 @@ export default function CardPurchase ({ purchase }) {
           // style={{ width: '92%', height: 500 }}
         >
           <div class='card-body'>
-            <button
-              type='button'
-              class='btn btn-outline-primary mt-4 ml-3'
-              style={{ borderRadius: '20%', width: 100 }}
-            >
-              Top Items
-            </button>
+            <Button variant="contained" sx={{borderRadius: 50}}>
+              Top Item
+            </Button>
 
             {(() => {
 

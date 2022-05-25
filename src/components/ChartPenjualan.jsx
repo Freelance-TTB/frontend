@@ -37,17 +37,14 @@ const series = [
 
 export default function ChartPenjualan() {
   return (
-    <Card variant="outlined" sx={{my: 5}}>
-      <Box sx={{mx: 3}}>
+      <Box sx={{m: 3}}>
         <Typography
           align='center'
-          sx={{ m: 3 }}
           variant="h4"
         >
           Total Penjualan
         </Typography>
-      <Chart options={options} series={series} type="bar" height={200}/>
+      <Chart options={options} series={series} type="bar" height={250}/>
       </Box>
-    </Card>
   )
 }
