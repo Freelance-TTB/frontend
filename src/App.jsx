@@ -10,7 +10,7 @@ import SalesPage from './pages/SalesPage'
 import PurchasePage from './pages/PurchasePage'
 import AccountPage from './pages/AccountPage'
 import DetailSupplierPage from './pages/DetailSupplierPage'
-
+import PurchaseOrderPage from './pages/PurchaseOrderPage'
 function App () {
   return (
     <Router>
@@ -24,7 +24,7 @@ function App () {
             <Route path='/sales' element={<SalesPage />} />
           </Route>
           <Route>
-            <Route path='/purchase' element={<PurchasePage />} />
+            <Route path='/purchases' element={<PurchasePage />} />
           </Route>
           <Route>
             <Route path='/account' element={<AccountPage />} />
@@ -40,6 +40,9 @@ function App () {
           </Route>
           <Route>
             <Route path='/suppliers/:id' element={<DetailSupplierPage />} />
+          </Route>
+          <Route>
+            <Route path='/order_purchases' element={<PurchaseOrderPage />} />
           </Route>
         </Routes>
       </Box>
