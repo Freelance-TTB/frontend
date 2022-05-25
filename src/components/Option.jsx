@@ -1,9 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import {
-  Box,
-  Grid
-} from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import OptionCard from './OptionCard'
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
@@ -12,7 +9,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
 import SmartphoneOutlinedIcon from '@mui/icons-material/SmartphoneOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 
-export default function Option ()  {
+export default function Option () {
   const [homeCard, setHomeCard] = useState([])
 
   useEffect(() => {
@@ -27,7 +24,7 @@ export default function Option ()  {
         id: 2,
         title: 'Purchases',
         icon: ShoppingCartIcon,
-        router: '/purchase'
+        router: '/purchases'
       },
       {
         id: 3,

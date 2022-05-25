@@ -91,14 +91,28 @@
 
 .my-custom-scrollbar {
   position: relative;
-  height: 300px;
+  height: 270px;
   overflow: auto;
 }
+
+.my-custom-scrollbar-order {
+  position: relative;
+  height: 180px;
+  overflow: auto;
+}
+
 .table-wrapper-scroll-y {
   display: block;
 }
 
-/* .table-striped-purchase>tbody>tr:nth-child(odd)>td,  */
-/* .table-striped-purchase>tbody>tr:nth-child(odd)>th { */
-    /* background-color: rgb(168, 240, 230); Choose your own color here */
-/* } */
+.table-striped-purchase>tbody>tr:nth-child(odd)>td, 
+.table-striped-purchase>tbody>tr:nth-child(odd)>th {
+    background-color: rgb(168, 240, 230)
+}
+
+
+
+/* .table-striped-purchase>tr:nth-child(odd) {
+  background-color:rgb(194, 240, 234);
+} */
+

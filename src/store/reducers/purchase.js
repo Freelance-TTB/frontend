@@ -1,7 +1,9 @@
-import { FETCH_SUPPLIERS } from '../keys'
+import { FETCH_SUPPLIER, FETCH_SUPPLIERS, FETCH_TOP_ITEMS } from '../keys'
 
 const initialState = {
-  suppliers: []
+  suppliers: [],
+  supplier: {},
+  items: []
 }
 
 export default function purchaseReducers (state = initialState, action) {
@@ -11,6 +13,17 @@ export default function purchaseReducers (state = initialState, action) {
       return {
         ...state,
         suppliers: payload
+      }
+
+    case FETCH_SUPPLIER:
+      return {
+        ...state,
+        supplier: payload
+      }
+    case FETCH_TOP_ITEMS:
+      return {
+        ...state,
+        items: payload
       }
     default:
       return state
