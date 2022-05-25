@@ -1,23 +1,20 @@
 // import logo from './logo.svg';
-// import './App.css';
+import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import '@fontsource/montserrat/400.css'
-import {
-  Box
-} from '@mui/material'
+import { Box } from '@mui/material'
 
 import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import SalesPage from './pages/SalesPage'
 import PurchasePage from './pages/PurchasePage'
 import AccountPage from './pages/AccountPage'
-
+import DetailSupplierPage from './pages/DetailSupplierPage'
+import PurchaseOrderPage from './pages/PurchaseOrderPage'
 function App () {
   return (
     <Router>
-      <Box 
-        // sx={{ bgcolor: '#F1EEE9' }}
-      >
+      <Box>
         <Navbar />
         <Routes>
           <Route>
@@ -27,7 +24,7 @@ function App () {
             <Route path='/sales' element={<SalesPage />} />
           </Route>
           <Route>
-            <Route path='/purchase' element={<PurchasePage />} />
+            <Route path='/purchases' element={<PurchasePage />} />
           </Route>
           <Route>
             <Route path='/account' element={<AccountPage />} />
@@ -40,6 +37,12 @@ function App () {
           </Route>
           <Route>
             <Route path='/settings' element={<HomePage />} />
+          </Route>
+          <Route>
+            <Route path='/suppliers/:id' element={<DetailSupplierPage />} />
+          </Route>
+          <Route>
+            <Route path='/order_purchases' element={<PurchaseOrderPage />} />
           </Route>
         </Routes>
       </Box>

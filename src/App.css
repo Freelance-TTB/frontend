@@ -36,3 +36,83 @@
     transform: rotate(360deg);
   }
 }
+
+.left-col-card-purchase {
+    float: left;
+    width:30%;
+    text-align: center;
+    font-size: 26px
+}
+.center-col-card-purchase {
+    float: left;
+    width: 35%;
+    text-align: center;
+    font-size: 26px
+}
+.right-col-card-purchase {
+    float: left;
+    width: 30%;
+    text-align: center;
+    font-size: 26px
+}
+
+.hr-line-purchase-card {
+  border-top: 4.2px solid #5F907D;
+  width: 90%;
+}
+
+.div-navbar-menu-under-card-purchase {
+  margin-top: 30;
+  margin-left: 50;
+  width: 1500
+}
+
+.navbar-menu-under-card-purchase{
+  background-color: #128056;
+}
+
+.nav-margin-purchase{
+  margin-left: 30px;
+  margin-right: 70px;
+  font-size: 20px;
+  color: white;
+  width: 70%
+}
+
+.text-margin-menu-purchase {
+  float: left;
+  width:33%;
+  font-size: 20px; 
+}
+
+.btn-menu-purchase {
+  width: 100%
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 270px;
+  overflow: auto;
+}
+
+.my-custom-scrollbar-order {
+  position: relative;
+  height: 180px;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.table-striped-purchase>tbody>tr:nth-child(odd)>td, 
+.table-striped-purchase>tbody>tr:nth-child(odd)>th {
+    background-color: rgb(168, 240, 230)
+}
+
+
+
+/* .table-striped-purchase>tr:nth-child(odd) {
+  background-color:rgb(194, 240, 234);
+} */
+
