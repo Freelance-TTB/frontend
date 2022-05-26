@@ -40,14 +40,13 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton> */}
+          
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            TATABUKU
+            <Link href="/" underline="none" sx={{color: 'white'}}>TATABUKU</Link>
           </Typography>
           <Box
             sx={{
               border: 1,
-              m: 1,
-              p: 1,
               bgcolor: 'white',
               borderRadius: 10
             }}
@@ -71,7 +70,11 @@ export default function Navbar() {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
+<<<<<<< HEAD
+              sx={{border: 1, borderRadius: 5, ml: 1}}
+=======
               sx={{border: 1, borderRadius: 5, mx: 1}}
+>>>>>>> 50fa6e317fdf3aa9a85d273a1e1fac1f8481c344
             >
               {(() => {
                 if (open) {
