@@ -1,7 +1,15 @@
+<<<<<<< HEAD
+import React from 'react'
+
+export default function PurchasePage() {
+  return (
+    <div>PurchasePage</div>
+=======
 import { Grid } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardPurchase from '../components/CardPurchase'
+import CarouselTopItems from '../components/CarouselTopItems'
 import TableSupplier from '../components/TableSupplier'
 import {
   actionFetchItems,
@@ -14,6 +22,7 @@ export default function PurchasePage () {
   const [isName, setIsName] = useState('')
   const [isMenuPurchase, setIsMenuPurchase] = useState([])
   const { suppliers, items } = useSelector(state => state.purchaseState)
+  console.log(items)
   useEffect(() => {
     dispatch(actionFetchSuppliers())
     dispatch(actionFetchItems())
@@ -250,55 +259,10 @@ export default function PurchasePage () {
           marginBottom: 75
         }}
       >
-        <div
-          id='carouselExampleInterval'
-          class='carousel slide'
-          data-bs-ride='carousel'
-        >
-          <div class='carousel-inner'>
-            {items.map(item => {
-              return (
-                <>
-                  <div class='carousel-item active' data-bs-interval='1000'>
-                    <div
-                      class='card container border-bottom bg-dark'
-                      style={{ width: '92%', height: 370 }}
-                    >
-                      <div class='card-body'>
-                        <button
-                          type='button'
-                          class='btn btn-outline-primary mt-4 ml-3'
-                          style={{ borderRadius: '20%', width: 100 }}
-                        >
-                          {item.name}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </>
-              )
-            })}
-          </div>
-          <button
-            class='carousel-control-prev'
-            type='button'
-            data-bs-target='#carouselExampleInterval'
-            data-bs-slide='prev'
-          >
-            <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-            <span class='visually-hidden'>Previous</span>
-          </button>
-          <button
-            class='carousel-control-next'
-            type='button'
-            data-bs-target='#carouselExampleInterval'
-            data-bs-slide='next'
-          >
-            <span class='carousel-control-next-icon' aria-hidden='true'></span>
-            <span class='visually-hidden'>Next</span>
-          </button>
-        </div>
+        {}
+        <CarouselTopItems />
       </div>
     </div>
+>>>>>>> c962562b7958161af9d6be2bd9684cabbd489482
   )
 }
