@@ -38,7 +38,7 @@ const series = [
 
 export default function PenjualanPembelian() {
   return (
-    <Card variant="outlined" sx={{my: 5}}>
+    <Card sx={{mb: 5, height: 320}}>
       <Box sx={{mx: 3}}>
         <Typography
           align='center'

@@ -16,6 +16,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import logoTatabuku from '../assets/TATABUKU.png'
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -29,7 +30,13 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1, mb: 3 }}>
-      <AppBar position="static" sx={{ borderBottomLeftRadius: 20, borderBottomRightRadius: 20}}>
+      <AppBar 
+        position="static" 
+        sx={{ 
+          borderBottomLeftRadius: 30, 
+          borderBottomRightRadius: 30, 
+          bgcolor: '#205375'
+        }}>
         <Toolbar>
           {/* <IconButton
             size="large"
@@ -39,28 +46,41 @@ export default function Navbar() {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
+
           </IconButton> */}
           
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link href="/" underline="none" sx={{color: 'white'}}>TATABUKU</Link>
+            <Link href="/" underline="none" sx={{color: 'white'}}>
+              <Box
+                component="img"
+                sx={{
+                  // height: '20%',
+                  maxHeight: { xs: 75, md: 75 },
+                  maxWidth: { xs: 350, md: 250 },
+                  m: 1
+                }}
+                alt="The house from the offer."
+                src={logoTatabuku}
+              />
+            </Link>
           </Typography>
+
           <Box
             sx={{
-              border: 1,
-              bgcolor: 'white',
+              bgcolor: '#f4a64e',
               borderRadius: 10
             }}
           > 
-            <Link href="#" underline="hover" sx={{m: 2}}>
+            <Link href="#" underline="hover" sx={{m: 2, color: 'white'}}>
               Customer
             </Link> 
-            <Link href="#" underline="hover"  sx={{m: 2}}>
+            <Link href="#" underline="hover"  sx={{m: 2, color: 'white'}}>
               Retur
             </Link> 
-            <Link href="#" underline="hover"  sx={{m: 2}}>
+            <Link href="#" underline="hover"  sx={{m: 2, color: 'white'}}>
               Product
             </Link> 
-            <Link href="#" underline="hover"  sx={{m: 2}}>
+            <Link href="#" underline="hover"  sx={{m: 2, color: 'white'}}>
               Reporting
             </Link> 
 
@@ -70,11 +90,7 @@ export default function Navbar() {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
-<<<<<<< HEAD
-              sx={{border: 1, borderRadius: 5, ml: 1}}
-=======
-              sx={{border: 1, borderRadius: 5, mx: 1}}
->>>>>>> 50fa6e317fdf3aa9a85d273a1e1fac1f8481c344
+              sx={{border: 1, borderRadius: 5, ml: 1, color: 'white'}}
             >
               {(() => {
                 if (open) {
