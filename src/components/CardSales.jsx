@@ -9,7 +9,7 @@ export default function CardPurchase ({ purchase }) {
           class='card container border-bottom'
           // style={{ width: '92%', height: 500 }}
         >
-          <div class='card-body'>
+          <div class='card-body' style={{ height: 400 }}>
             <Button variant="contained" sx={{borderRadius: 50}}>
               Top Item
             </Button>

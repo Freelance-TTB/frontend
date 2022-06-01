@@ -39,7 +39,12 @@ export default function KasBank() {
         </Typography>
       </Box>
 
-      <Box sx={{height: 220}}>
+      <Box 
+        overflow="auto"
+        height="35vh"
+        flexDirection="column"
+        display="flex"
+        >
       {
         banks.map((bank, index) => {
           return (

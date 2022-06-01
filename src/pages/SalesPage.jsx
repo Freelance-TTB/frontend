@@ -1,6 +1,7 @@
 import { 
   Grid,
   Button,
+  ButtonGroup,
   Link
 } from '@mui/material'
 import { useState, useEffect } from 'react'
@@ -68,9 +69,8 @@ export default function PurchasePage () {
         ) : (
           <div
             class='card container border-bottom'
-            // style={{ width: '92%', height: 500 }}
           >
-            <div class='card-body'>
+            <div class='card-body' style={{ height: 400 }}>
               <Button variant="contained" sx={{borderRadius: 50}}>
                 Top Item
               </Button>
@@ -89,67 +89,100 @@ export default function PurchasePage () {
         <div>
           <Grid
             container
-            sx={{ bgcolor: "#205375", borderRadius: 5}}
+            sx={{ 
+              bgcolor: "#2170a5", 
+              borderRadius: 20
+            }}
           >
             <Grid item xs={3}>
-              <button
-                type='button'
-                class='btn btn-menu-purchase'
+              <Button
+                variant="contained"
                 name='Penjualan'
                 onClick={() => {
                   setIsName('Penjualan')
                   setIsActive(true)
                 }}
-                style={{
-                  color: "white",
-                  borderTopLeftRadius: 5,
-                  borderBottomLeftRadius: 5
+                sx={{
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5",
+                  '&:hover': {
+                    background: "#205375",
+                  },
+                  borderTopLeftRadius: 20,
+                  borderBottomLeftRadius: 20,
+                  borderTopRightRadius: 0, 
+                  borderBottomRightRadius: 0
                 }}
               >
                 Penjualan
-              </button>
+              </Button>
             </Grid>
             <Grid item xs={3}>
-              <button
-                type='button'
-                class='btn btn-menu-purchase'
+              <Button
+                variant="contained"
                 name='Uang Saya'
                 onClick={() => {
                   setIsName('Uang Saya')
                   setIsActive(true)
                 }}
-                style={{color: "white"}}
+                sx={{ 
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5",
+                  '&:hover': {
+                    background: "#205375",
+                  }, 
+                  borderRadius: 0
+                }}
               >
                 Uang Saya
-              </button>
+              </Button>
             </Grid>
             <Grid item xs={3}>
-              <button
-                type='button'
-                class='btn btn-menu-purchase'
+              <Button
+                variant="contained"
                 name='Pembayaran'
                 onClick={() => {
                   setIsName('Pembayaran')
                   setIsActive(true)
                 }}
-                style={{color: "white"}}
+                sx={{ 
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5", 
+                  '&:hover': {
+                    background: "#205375",
+                  },
+                  borderRadius: 0
+                }}
               >
                 Pembayaran
-              </button>
+              </Button>
             </Grid>
             <Grid item xs={3}>
-              <button
-                type='button'
-                class='btn btn-menu-purchase'
+              <Button
+                variant="contained"
                 name='Uang Muka'
                 onClick={() => {
                   setIsName('Uang Muka')
                   setIsActive(true)
                 }}
-                style={{color: "white"}}
+                sx={{ 
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5", 
+                  '&:hover': {
+                    background: "#205375",
+                  },
+                  borderTopLeftRadius: 0,
+                  borderBottomLeftRadius: 0,
+                  borderTopRightRadius: 20, 
+                  borderBottomRightRadius: 20
+                }}
               >
                 Uang Muka
-              </button>
+              </Button>
             </Grid>
           </Grid>
           

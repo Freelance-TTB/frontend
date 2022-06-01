@@ -28,7 +28,7 @@ export default function Hutang() {
       <Grid container spacing={1} sx={{mb: 2}}>
         <Grid item xs={2}>
           <Typography
-            align='center'
+            align='left'
             sx={{
               p: 2
             }}
@@ -55,12 +55,12 @@ export default function Hutang() {
       <Grid container spacing={1} sx={{mb: 2}}  >
         <Grid item xs={2}>
           <Typography
-            align='center'
+            align='left'
             sx={{
               p: 2
             }}
           >
-            Pembelian
+            Saya
           </Typography>
         </Grid>
         <Grid item xs={10}>

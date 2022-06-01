@@ -19,7 +19,15 @@ export default function OptionCard ({ item }) {
   }
 
   return (
-    <Card sx={{ bgcolor: '#2170a5'}}>
+    <Card 
+      sx={{ 
+        bgcolor: '#2170a5',
+        transition: "background 0.5s, color 0.5s",
+        '&:hover': {
+          background: "#205375"
+        }
+      }}
+    >
       <CardActionArea onClick={() => cardPage()}>
         <CardContent>
           <Grid container spacing={1}>

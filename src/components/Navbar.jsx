@@ -18,6 +18,13 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import logoTatabuku from '../assets/TATABUKU.png'
 
+const navOption = [
+  "Customer",
+  "Retur",
+  "Product",
+  "Reporting"
+]
+
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -38,17 +45,6 @@ export default function Navbar() {
           bgcolor: '#205375'
         }}>
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-
-          </IconButton> */}
-          
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link href="/" underline="none" sx={{color: 'white'}}>
               <Box
@@ -71,18 +67,24 @@ export default function Navbar() {
               borderRadius: 10
             }}
           > 
-            <Link href="#" underline="hover" sx={{m: 2, color: 'white'}}>
-              Customer
-            </Link> 
-            <Link href="#" underline="hover"  sx={{m: 2, color: 'white'}}>
-              Retur
-            </Link> 
-            <Link href="#" underline="hover"  sx={{m: 2, color: 'white'}}>
-              Product
-            </Link> 
-            <Link href="#" underline="hover"  sx={{m: 2, color: 'white'}}>
-              Reporting
-            </Link> 
+            {
+              navOption.map((name) => {
+                return (
+                  <Link href="#" underline="none" 
+                    sx={{
+                      m: 2, 
+                      color: 'white',
+                      transition: "background 0.5s, color 0.5s",
+                      '&:hover': {
+                        color: "#205375",
+                      },
+                    }}
+                  >
+                    {name}
+                  </Link> 
+                )
+              }) 
+            }
 
             <Button
               id="fade-button"
@@ -90,7 +92,16 @@ export default function Navbar() {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
-              sx={{border: 1, borderRadius: 5, ml: 1, color: 'white'}}
+              sx={{
+                border: 1, 
+                borderRadius: 5, 
+                ml: 1, 
+                color: 'white',
+                transition: "background 0.5s, color 0.5s",
+                '&:hover': {
+                  color: "#205375"
+                },
+              }}
             >
               {(() => {
                 if (open) {
