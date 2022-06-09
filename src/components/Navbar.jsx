@@ -93,7 +93,7 @@ export default function Navbar() {
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
               sx={{
-                border: 1, 
+                border: 2, 
                 borderRadius: 5, 
                 ml: 1, 
                 color: 'white',

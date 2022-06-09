@@ -1,97 +1,85 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Carousel } from 'react-bootstrap'
+import React from 'react';
+import Carousel from 'react-material-ui-carousel'
+import { 
+  Paper, 
+  Button,
+  Box,
+  Grid,
+  Card,
+  Typography
+} from '@mui/material'
 
-function CarouselTopItems () {
-  // State for Active index
-  const [activeIndex, setActiveIndex] = React.useState(0)
+export default function Example(props)
+{
+    var items = [
+      {
+        name: "Cangkir",
+        harga: "Rp 200.000,00",
+        terjual: "200",
+        image: "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/111/0711123_PE727991_S5.jpg"
+      },
+      {
+        name: "Meja",
+        harga: "Rp 300.000,00",
+        terjual: "100",
+        image: "https://res.cloudinary.com/ruparupa-com/image/upload//f_auto,q_auto:eco/v1572329164/Products/10210604_1.jpg"
+      }
+    ]
 
-  // State for Animation
-  const [animating, setAnimating] = React.useState(false)
-
-  // Sample items for Carousel
-  const items = [
-    {
-      src:
-        'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190603152813/ml_gaming.png'
-    },
-    {
-      src:
-        'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190528184201/gateexam.png'
-    }
-  ]
-
-  // Items array length
-  const itemLength = items.length - 1
-
-  // Previous button for Carousel
-  const previousButton = () => {
-    if (animating) return
-    const nextIndex = activeIndex === 0 ? itemLength : activeIndex - 1
-    setActiveIndex(nextIndex)
-  }
-
-  // Next button for Carousel
-  const nextButton = () => {
-    if (animating) return
-    const nextIndex = activeIndex === itemLength ? 0 : activeIndex + 1
-    setActiveIndex(nextIndex)
-  }
-
-  // Carousel Item Data
-  //   const carouselItemData = items.map(item => {
-  //     return (
-  //       <CarouselItem
-  //         key={item.src}
-  //         onExited={() => setAnimating(false)}
-  //         onExiting={() => setAnimating(true)}
-  //       >
-  //         <img src={item.src} alt={item.altText} />
-  //       </CarouselItem>
-  //     )
-  //   })
-
-  return (
-    <div>
-      <Carousel>
-        <Carousel.Item interval={1000}>
-          <img
-            className='d-block w-100'
-            src='https://i0.wp.com/esportsnesia.com/wp-content/uploads/2021/07/Claude-Cover-696x464.jpg'
-            alt='First slide'
-          />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item interval={500}>
-          <img
-            className='d-block w-100'
-            src='https://cdn.oneesports.gg/cdn-data/sites/2/2021/09/MLBB_BlitzAttackBeatrix.jpg'
-            alt='Second slide'
-          />
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className='d-block w-100'
-            src='https://gamefinity.id/wp-content/uploads/2021/10/Mobile-Legends-Brody.jpg'
-            alt='Third slide'
-          />
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-    </div>
-  )
+    return (
+      
+        <Carousel
+          sx={{ 
+            m: 3
+          }}
+        >
+          {
+            items.map( (item, i) => <Item key={i} item={item} /> )
+          }
+        </Carousel>
+    )
 }
 
-export default CarouselTopItems
+function Item(props)
+{
+    return (
+      <Box sx={{ m: 1 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="h4">
+              <Box sx={{ textAlign: 'center', m: 1 }}>
+                Top 10 Penjualan Product
+              </Box>
+            </Typography>
+          </Grid>
+          <Grid item xs={5}>
+            <Card sx={{ p: 2, height: 180 }}>
+              <h2>{props.item.name}</h2>
+              <p>Harga: {props.item.harga}</p>
+              <p>Terjual: {props.item.terjual} unit</p>
+            </Card>
+          </Grid>
+          <Grid item xs={7}>
+            <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+            >
+              <Box
+                component="img"
+                sx={{
+                  mx: 3,
+                  height: 233,
+                  width: 350,
+                  maxHeight: { xs: 233, md: 167 },
+                  maxWidth: { xs: 350, md: 250 },
+                }}
+                alt="The house from the offer."
+                src={props.item.image}
+              />
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
+    )
+}

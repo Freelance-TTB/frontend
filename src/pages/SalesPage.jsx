@@ -12,7 +12,7 @@ import { actionFetchSuppliers } from '../store/actions/purchase'
 import SalesTable from '../components/SalesTable'
 import ChartPenjualan from '../components/ChartPenjualan'
 
-export default function PurchasePage () {
+export default function SalesPage () {
   const dispatch = useDispatch()
   const [isActive, setIsActive] = useState(false)
   const [isName, setIsName] = useState('')
@@ -51,6 +51,9 @@ export default function PurchasePage () {
         subtitle1: 'DP Keluar',
         subtitle2: 'DP Masuk',
         subtitle3: 'Saldo DP'
+      },
+      {
+        name: 'Top Item'
       }
     ]
 
@@ -58,28 +61,36 @@ export default function PurchasePage () {
   }, [])
   return (
     <div>
-      {/* Total Pembelian // */}
-      <div>
-        {isActive === true ? (
-          isMenuPurchase
-            .filter(purchase => purchase.name === isName)
-            .map(purchase => {
-              return <CardSales purchase={purchase} />
-            })
-        ) : (
-          <div
-            class='card container border-bottom'
-          >
-            <div class='card-body' style={{ height: 400 }}>
-              <Button variant="contained" sx={{borderRadius: 50}}>
-                Top Item
-              </Button>
 
+      <div
+        class='card container border-bottom'
+      >
+        <div class='card-body' style={{ height: 400 }}>
+          <Button 
+            variant="contained" 
+            onClick={() => {
+              setIsName('Top Item')
+              setIsActive(true)
+            }}
+            sx={{borderRadius: 50}}
+          >
+            Top Item
+          </Button>
+
+          <div>
+            {isActive === true ? (
+              isMenuPurchase
+                .filter(purchase => purchase.name === isName)
+                .map(purchase => {
+                  return <CardSales purchase={purchase} />
+                })
+            ) : (
               <ChartPenjualan/>
-            </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
+
       <div
         class='container'
         style={{
