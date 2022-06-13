@@ -1,6 +1,8 @@
 import { 
   Grid,
-  Button
+  Button,
+  ButtonGroup,
+  Link
 } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,6 +10,7 @@ import CardSales from '../components/CardSales'
 import TableSupplier from '../components/TableSupplier'
 import { actionFetchSuppliers } from '../store/actions/purchase'
 import SalesTable from '../components/SalesTable'
+import ChartPenjualan from '../components/ChartPenjualan'
 
 export default function PurchasePage () {
   const dispatch = useDispatch()
@@ -66,48 +69,13 @@ export default function PurchasePage () {
         ) : (
           <div
             class='card container border-bottom'
-            style={{ width: '92%', height: 370 }}
           >
-            <div class='card-body'>
+            <div class='card-body' style={{ height: 400 }}>
               <Button variant="contained" sx={{borderRadius: 50}}>
                 Top Item
               </Button>
-              <div
-                style={{
-                  textAlign: 'center',
-                  marginTop: 20
-                }}
-              >
-                <h1>Total Pembayaran</h1>
-              </div>
-              <div
-                style={{
-                  marginLeft: 70,
-                  marginTop: 20
-                }}
-              >
-                <div class='left-col-card-purchase'>Hari Ini</div>
-                <div class='center-col-card-purchase'>Bulan ini</div>
-                <div class='right-col-card-purchase'>Tahun Ini</div>
-              </div>
-              <div
-                style={{
-                  marginTop: 90
-                }}
-              >
-                <hr class='hr-line-purchase-card' />
-              </div>
 
-              <div
-                style={{
-                  marginLeft: 70,
-                  marginTop: 38
-                }}
-              >
-                <div class='left-col-card-purchase'>Hari Ini</div>
-                <div class='center-col-card-purchase'>Bulan Ini</div>
-                <div class='right-col-card-purchase'>Tahun Ini</div>
-              </div>
+              <ChartPenjualan/>
             </div>
           </div>
         )}
@@ -121,60 +89,100 @@ export default function PurchasePage () {
         <div>
           <Grid
             container
-            rowSpacing={3}
-            columnSpacing={{ xs: 2, sm: 2, md: 3 }}
+            sx={{ 
+              bgcolor: "#2170a5", 
+              borderRadius: 20
+            }}
           >
-            <Grid item xs={6}>
-              <button
-                type='button'
-                class='btn btn-success btn-menu-purchase'
+            <Grid item xs={3}>
+              <Button
+                variant="contained"
                 name='Penjualan'
                 onClick={() => {
                   setIsName('Penjualan')
                   setIsActive(true)
                 }}
+                sx={{
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5",
+                  '&:hover': {
+                    background: "#205375",
+                  },
+                  borderTopLeftRadius: 20,
+                  borderBottomLeftRadius: 20,
+                  borderTopRightRadius: 0, 
+                  borderBottomRightRadius: 0
+                }}
               >
                 Penjualan
-              </button>
+              </Button>
             </Grid>
-            <Grid item xs={6}>
-              <button
-                type='button'
-                class='btn btn-danger btn-menu-purchase'
+            <Grid item xs={3}>
+              <Button
+                variant="contained"
                 name='Uang Saya'
                 onClick={() => {
                   setIsName('Uang Saya')
                   setIsActive(true)
                 }}
+                sx={{ 
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5",
+                  '&:hover': {
+                    background: "#205375",
+                  }, 
+                  borderRadius: 0
+                }}
               >
                 Uang Saya
-              </button>
+              </Button>
             </Grid>
-            <Grid item xs={6}>
-              <button
-                type='button'
-                class='btn btn-primary btn-menu-purchase'
+            <Grid item xs={3}>
+              <Button
+                variant="contained"
                 name='Pembayaran'
                 onClick={() => {
                   setIsName('Pembayaran')
                   setIsActive(true)
                 }}
+                sx={{ 
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5", 
+                  '&:hover': {
+                    background: "#205375",
+                  },
+                  borderRadius: 0
+                }}
               >
                 Pembayaran
-              </button>
+              </Button>
             </Grid>
-            <Grid item xs={6}>
-              <button
-                type='button'
-                class='btn btn-info btn-menu-purchase'
+            <Grid item xs={3}>
+              <Button
+                variant="contained"
                 name='Uang Muka'
                 onClick={() => {
                   setIsName('Uang Muka')
                   setIsActive(true)
                 }}
+                sx={{ 
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5", 
+                  '&:hover': {
+                    background: "#205375",
+                  },
+                  borderTopLeftRadius: 0,
+                  borderBottomLeftRadius: 0,
+                  borderTopRightRadius: 20, 
+                  borderBottomRightRadius: 20
+                }}
               >
                 Uang Muka
-              </button>
+              </Button>
             </Grid>
           </Grid>
           

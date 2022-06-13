@@ -19,8 +19,14 @@ export default function HomePage() {
     <Box>
       <Box sx={{ mx: 5}}>
         <Option/>
-        <Hutang/>
-        <PenjualanPembelian/>
+        <Grid container spacing={4}>
+          <Grid item xs={6}>
+            <Hutang/>
+          </Grid>
+          <Grid item xs={6}>
+            <PenjualanPembelian/> 
+          </Grid>
+        </Grid>
         <KasBank/>
       </Box>
     </Box>

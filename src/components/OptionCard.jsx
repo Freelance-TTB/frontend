@@ -19,7 +19,15 @@ export default function OptionCard ({ item }) {
   }
 
   return (
-    <Card>
+    <Card 
+      sx={{ 
+        bgcolor: '#2170a5',
+        transition: "background 0.5s, color 0.5s",
+        '&:hover': {
+          background: "#205375"
+        }
+      }}
+    >
       <CardActionArea onClick={() => cardPage()}>
         <CardContent>
           <Grid container spacing={1}>
@@ -28,7 +36,8 @@ export default function OptionCard ({ item }) {
               xs={12}
               sx={{
                 display: 'flex',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                color: '#f4a64e'
               }}
             >
               <item.icon fontSize='large' />
@@ -38,7 +47,8 @@ export default function OptionCard ({ item }) {
               xs={12}
               sx={{
                 display: 'flex',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                color: '#f4a64e'
               }}
             >
               <Typography gutterBottom variant='h5' component='div'>

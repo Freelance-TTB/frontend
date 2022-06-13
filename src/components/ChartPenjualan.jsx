@@ -25,7 +25,7 @@ const options = {
   xaxis: {
     categories: ['Hari Ini', 'Minggu Ini', 'Bulan Ini']
   },
-  colors: ['#85C88A', '#F44336', '#A25B5B']
+  colors: ['#85C88A', '#F44336', '#254364']
 }
 
 const series = [

@@ -26,7 +26,7 @@ const banks = [
 export default function KasBank() {
 
   return (
-    <Card variant="outlined" sx={{mb: 5}}>
+    <Card>
       <Box
         sx={{
           display: 'flex',
@@ -39,7 +39,12 @@ export default function KasBank() {
         </Typography>
       </Box>
 
-      <Box>
+      <Box 
+        overflow="auto"
+        height="35vh"
+        flexDirection="column"
+        display="flex"
+        >
       {
         banks.map((bank, index) => {
           return (

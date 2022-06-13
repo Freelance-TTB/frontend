@@ -14,38 +14,41 @@ import PurchaseOrderPage from './pages/PurchaseOrderPage'
 function App () {
   return (
     <Router>
-      <Box>
-        <Navbar />
-        <Routes>
-          <Route>
-            <Route path='/' element={<HomePage />} />
-          </Route>
-          <Route>
-            <Route path='/sales' element={<SalesPage />} />
-          </Route>
-          <Route>
-            <Route path='/purchases' element={<PurchasePage />} />
-          </Route>
-          <Route>
-            <Route path='/account' element={<AccountPage />} />
-          </Route>
-          <Route>
-            <Route path='/accounting' element={<HomePage />} />
-          </Route>
-          <Route>
-            <Route path='/apps' element={<HomePage />} />
-          </Route>
-          <Route>
-            <Route path='/settings' element={<HomePage />} />
-          </Route>
-          <Route>
-            <Route path='/suppliers/:id' element={<DetailSupplierPage />} />
-          </Route>
-          <Route>
-            <Route path='/order_purchases' element={<PurchaseOrderPage />} />
-          </Route>
-        </Routes>
-      </Box>
+      <div class="App">
+        <Box sx={{ bgcolor: '#EFEFEF' }}>
+          <Navbar />
+          <Routes>
+            <Route>
+              <Route path='/' element={<HomePage />} />
+            </Route>
+            <Route>
+              <Route path='/sales' element={<SalesPage />} />
+            </Route>
+            <Route>
+              <Route path='/purchases' element={<PurchasePage />} />
+            </Route>
+            <Route>
+              <Route path='/account' element={<AccountPage />} />
+            </Route>
+            <Route>
+              <Route path='/accounting' element={<HomePage />} />
+            </Route>
+            <Route>
+              <Route path='/apps' element={<HomePage />} />
+            </Route>
+            <Route>
+              <Route path='/settings' element={<HomePage />} />
+            </Route>
+            <Route>
+              <Route path='/suppliers/:id' element={<DetailSupplierPage />} />
+            </Route>
+            <Route>
+              <Route path='/order_purchases' element={<PurchaseOrderPage />} />
+            </Route>
+          </Routes>
+        </Box>
+        <Box sx={{height: 50}}></Box>
+      </div>
     </Router>
   )
 }

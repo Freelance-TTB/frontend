@@ -49,10 +49,10 @@ export default function Navbar () {
               TATABUKU
             </Link>
           </Typography>
+
           <Box
             sx={{
-              border: 1,
-              bgcolor: 'white',
+              bgcolor: '#f4a64e',
               borderRadius: 10
             }}
           >

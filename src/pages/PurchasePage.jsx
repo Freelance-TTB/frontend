@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardPurchase from '../components/CardPurchase'
-import CarouselTopItems from '../components/CarouselTopItems'
+// import CarouselTopItems from '../components/CarouselTopItems'
 import TableSupplier from '../components/TableSupplier'
 import {
   actionFetchItems,
@@ -253,7 +253,7 @@ export default function PurchasePage () {
         }}
       >
         {}
-        <CarouselTopItems />
+        {/* <CarouselTopItems /> */}
       </div>
     </div>
   )

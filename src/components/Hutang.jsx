@@ -12,11 +12,10 @@ import {
 
 export default function Hutang() {
   return (
-    // <Box sx={{border: 1, borderRadius: 5,  my: 5}}>
-    <Card variant="outlined">
+    <Card sx={{ height: 320}}>
       <Box
         sx={{
-          display: 'flex',
+          display: 'flex',  
           justifyContent: 'center',
           mb: 3
         }}
@@ -29,7 +28,7 @@ export default function Hutang() {
       <Grid container spacing={1} sx={{mb: 2}}>
         <Grid item xs={2}>
           <Typography
-            align='center'
+            align='left'
             sx={{
               p: 2
             }}
@@ -56,12 +55,12 @@ export default function Hutang() {
       <Grid container spacing={1} sx={{mb: 2}}  >
         <Grid item xs={2}>
           <Typography
-            align='center'
+            align='left'
             sx={{
               p: 2
             }}
           >
-            Pembelian
+            Saya
           </Typography>
         </Grid>
         <Grid item xs={10}>
@@ -80,6 +79,5 @@ export default function Hutang() {
         </Grid>
       </Grid>
     </Card>
-    // </Box>
   )
 }
