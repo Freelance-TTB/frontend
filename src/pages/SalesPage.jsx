@@ -1,25 +1,26 @@
-import { 
-  Grid,
-  Button,
-  ButtonGroup,
-  Link
-} from '@mui/material'
+import { Grid, Button, ButtonGroup, Link } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardSales from '../components/CardSales'
 import TableSupplier from '../components/TableSupplier'
-import { actionFetchSuppliers } from '../store/actions/purchase'
+import {
+  actionFetchItems,
+  actionFetchSuppliers
+} from '../store/actions/purchase'
 import SalesTable from '../components/SalesTable'
 import ChartPenjualan from '../components/ChartPenjualan'
+import CarouselTopItems from '../components/CarouselTopItems'
 
-export default function PurchasePage () {
+export default function SalesPage () {
   const dispatch = useDispatch()
-  const [isActive, setIsActive] = useState(false)
+  const [isMenuActive, setIsMenuActive] = useState(false)
+  const [isCarouselActive, setIsCarouselActive] = useState(false)
   const [isName, setIsName] = useState('')
   const [isMenuPurchase, setIsMenuPurchase] = useState([])
   const { suppliers } = useSelector(state => state.purchaseState)
   useEffect(() => {
     dispatch(actionFetchSuppliers())
+    dispatch(actionFetchItems())
   }, [])
 
   useEffect(() => {
@@ -56,26 +57,49 @@ export default function PurchasePage () {
 
     setIsMenuPurchase(dataMenuPurchase)
   }, [])
+
+  function clickCarouselActive (params) {
+    setIsCarouselActive(true)
+  }
+
+  function clickMenuActive (params) {
+    // console.log(params)
+    setIsMenuActive(params)
+  }
+
   return (
     <div>
       {/* Total Pembelian // */}
       <div>
-        {isActive === true ? (
+        {isMenuActive === true ? (
           isMenuPurchase
             .filter(purchase => purchase.name === isName)
             .map(purchase => {
-              return <CardSales purchase={purchase} />
+              return (
+                <CardSales
+                  purchase={purchase}
+                  clickCarouselActive={clickCarouselActive}
+                  clickMenuActive={clickMenuActive}
+                />
+              )
             })
+        ) : isMenuActive === false && isCarouselActive === true ? (
+          <CarouselTopItems />
         ) : (
-          <div
-            class='card container border-bottom'
-          >
+          <div class='card container border-bottom'>
             <div class='card-body' style={{ height: 400 }}>
-              <Button variant="contained" sx={{borderRadius: 50}}>
+              <Button
+                variant='contained'
+                sx={{ borderRadius: 50 }}
+                onClick={() => {
+                  clickCarouselActive(true)
+                  setIsMenuActive(false)
+                }}
+              >
                 Top Item
               </Button>
 
-              <ChartPenjualan/>
+              <ChartPenjualan />
             </div>
           </div>
         )}
@@ -89,29 +113,30 @@ export default function PurchasePage () {
         <div>
           <Grid
             container
-            sx={{ 
-              bgcolor: "#2170a5", 
+            sx={{
+              bgcolor: '#2170a5',
               borderRadius: 20
             }}
           >
             <Grid item xs={3}>
               <Button
-                variant="contained"
+                variant='contained'
                 name='Penjualan'
                 onClick={() => {
                   setIsName('Penjualan')
-                  setIsActive(true)
+                  clickMenuActive(true)
+                  clickCarouselActive(false)
                 }}
                 sx={{
-                  width: '100%', 
-                  boxShadow: "none",
-                  bgcolor: "#2170a5",
+                  width: '100%',
+                  boxShadow: 'none',
+                  bgcolor: '#2170a5',
                   '&:hover': {
-                    background: "#205375",
+                    background: '#205375'
                   },
                   borderTopLeftRadius: 20,
                   borderBottomLeftRadius: 20,
-                  borderTopRightRadius: 0, 
+                  borderTopRightRadius: 0,
                   borderBottomRightRadius: 0
                 }}
               >
@@ -120,19 +145,20 @@ export default function PurchasePage () {
             </Grid>
             <Grid item xs={3}>
               <Button
-                variant="contained"
+                variant='contained'
                 name='Uang Saya'
                 onClick={() => {
                   setIsName('Uang Saya')
-                  setIsActive(true)
+                  clickMenuActive(true)
+                  clickCarouselActive(false)
                 }}
-                sx={{ 
-                  width: '100%', 
-                  boxShadow: "none",
-                  bgcolor: "#2170a5",
+                sx={{
+                  width: '100%',
+                  boxShadow: 'none',
+                  bgcolor: '#2170a5',
                   '&:hover': {
-                    background: "#205375",
-                  }, 
+                    background: '#205375'
+                  },
                   borderRadius: 0
                 }}
               >
@@ -141,18 +167,19 @@ export default function PurchasePage () {
             </Grid>
             <Grid item xs={3}>
               <Button
-                variant="contained"
+                variant='contained'
                 name='Pembayaran'
                 onClick={() => {
                   setIsName('Pembayaran')
-                  setIsActive(true)
+                  clickMenuActive(true)
+                  clickCarouselActive(false)
                 }}
-                sx={{ 
-                  width: '100%', 
-                  boxShadow: "none",
-                  bgcolor: "#2170a5", 
+                sx={{
+                  width: '100%',
+                  boxShadow: 'none',
+                  bgcolor: '#2170a5',
                   '&:hover': {
-                    background: "#205375",
+                    background: '#205375'
                   },
                   borderRadius: 0
                 }}
@@ -162,22 +189,23 @@ export default function PurchasePage () {
             </Grid>
             <Grid item xs={3}>
               <Button
-                variant="contained"
+                variant='contained'
                 name='Uang Muka'
                 onClick={() => {
                   setIsName('Uang Muka')
-                  setIsActive(true)
+                  clickMenuActive(true)
+                  clickCarouselActive(false)
                 }}
-                sx={{ 
-                  width: '100%', 
-                  boxShadow: "none",
-                  bgcolor: "#2170a5", 
+                sx={{
+                  width: '100%',
+                  boxShadow: 'none',
+                  bgcolor: '#2170a5',
                   '&:hover': {
-                    background: "#205375",
+                    background: '#205375'
                   },
                   borderTopLeftRadius: 0,
                   borderBottomLeftRadius: 0,
-                  borderTopRightRadius: 20, 
+                  borderTopRightRadius: 20,
                   borderBottomRightRadius: 20
                 }}
               >
@@ -185,12 +213,12 @@ export default function PurchasePage () {
               </Button>
             </Grid>
           </Grid>
-          
         </div>
       </div>
-
       <div class='container' style={{ marginBottom: 70, marginTop: 25 }}>
-        <h3 style={{ textAlign: 'center', marginTop: 70, marginBottom: 50 }}>List Supplier</h3>
+        <h3 style={{ textAlign: 'center', marginTop: 70, marginBottom: 50 }}>
+          List Supplier
+        </h3>
         <div class='table-wrapper-scroll-y my-custom-scrollbar'>
           <table class='table table-borderless table-striped-purchase table-hover'>
             <thead>

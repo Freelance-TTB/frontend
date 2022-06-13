@@ -73,10 +73,6 @@ export default function DetailSupplierPage () {
     dispatch(actionDetailSuppliers(id))
   }, [dispatch])
 
-  function clickCoba () {
-    console.log('MASUK')
-  }
-
   return (
     <div class='container'>
       <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -158,55 +154,46 @@ export default function DetailSupplierPage () {
               .filter(menu => menu.name === isMenuName)
               .map(menu => {
                 return (
-                  <div>
-                    <div
-                      class='card container border-bottom'
-                      style={{ width: '98%', height: 420, marginTop: 28 }}
-                    >
-                      <div class='card-body'>
-                        <img
-                          src={menu.image}
-                          style={{
-                            height: '30%',
-                            marginTop: 30,
-                            marginRight: 10,
-                            float: 'left'
-                          }}
-                        />
-                        <div
-                          style={{
-                            float: 'left',
-                            marginTop: 20,
-                            width: '30%',
-                            marginRight: 15
-                          }}
-                        >
-                          <h5>{supplier.nama}</h5>
-                          <h5>085161069700</h5>
-                          <h5>{supplier.alamat}</h5>
-                        </div>
-                        <div>
-                          <h3
-                            style={{
-                              textAlign: 'center'
-                            }}
-                          >
-                            {menu.title}
-                          </h3>
-                          <div
-                            style={{
-                              float: 'left',
-                              margin: 1
-                            }}
-                          >
-                            <p>{menu.subtitle1}</p>
-                            <p>10.000</p>
-                            <p>{menu.subtitle2}</p>
-                            <p>10.000</p>
-                            <p>{menu.subtitle3}</p>
-                            <p>10.0000</p>
-                          </div>
-                        </div>
+                  <div
+                    class='card container border-bottom'
+                    style={{ width: '92%', height: 370 }}
+                  >
+                    <div class='card-body'>
+                      <div
+                        style={{
+                          textAlign: 'center',
+                          marginTop: 20
+                        }}
+                      >
+                        <h1>{menu.title}</h1>
+                      </div>
+                      <div
+                        style={{
+                          marginLeft: 70,
+                          marginTop: 20
+                        }}
+                      >
+                        <div class='left-col-card-purchase'>Hari Ini</div>
+                        <div class='center-col-card-purchase'>Bulan ini</div>
+                        <div class='right-col-card-purchase'>Tahun Ini</div>
+                      </div>
+                      <div
+                        style={{
+                          marginTop: 90
+                        }}
+                      >
+                        <hr class='hr-line-purchase-card' />
+                      </div>
+
+                      <div
+                        style={{
+                          marginLeft: 70,
+                          marginTop: 38
+                        }}
+                      >
+                        <div class='left-col-card-purchase'>Hari Ini</div>
+                        <div class='center-col-card-purchase'>Bulan Ini</div>
+                        <div class='right-col-card-purchase'>Tahun Ini</div>
                       </div>
                     </div>
                   </div>
@@ -216,51 +203,44 @@ export default function DetailSupplierPage () {
         ) : (
           <div
             class='card container border-bottom'
-            style={{ width: '98%', height: 420, marginTop: 28 }}
+            style={{ width: '92%', height: 370 }}
           >
             <div class='card-body'>
-              <img
-                src={cashmoney}
-                style={{
-                  height: '30%',
-                  marginTop: 30,
-                  marginRight: 10,
-                  float: 'left'
-                }}
-              />
               <div
                 style={{
-                  float: 'left',
-                  marginTop: 20,
-                  width: '30%',
-                  marginRight: 15
+                  textAlign: 'center',
+                  marginTop: 20
                 }}
               >
-                <h5>{supplier.nama}</h5>
-                <h5>085161069700</h5>
-                <h5>{supplier.alamat}</h5>
+                <h1>Total Pembayaran</h1>
               </div>
-              <div>
-                <h5
-                  style={{
-                    textAlign: 'center'
-                  }}
-                >
-                  Total Pembelian
-                </h5>
-                <div
-                  style={{
-                    float: 'left',
-                    margin: 1
-                  }}
-                >
-                  <h7>Hari Ini</h7>
-                  <p>10.000</p>
-                  <h7>Bulan Ini</h7>
-                  <p>10.000</p>
-                  <h7>Tahun Ini</h7>
-                  <p>10.0000</p>
-                </div>
+              <div
+                style={{
+                  marginLeft: 70,
+                  marginTop: 20
+                }}
+              >
+                <div class='left-col-card-purchase'>Hari Ini</div>
+                <div class='center-col-card-purchase'>Bulan ini</div>
+                <div class='right-col-card-purchase'>Tahun Ini</div>
+              </div>
+              <div
+                style={{
+                  marginTop: 90
+                }}
+              >
+                <hr class='hr-line-purchase-card' />
+              </div>
+
+              <div
+                style={{
+                  marginLeft: 70,
+                  marginTop: 38
+                }}
+              >
+                <div class='left-col-card-purchase'>Hari Ini</div>
+                <div class='center-col-card-purchase'>Bulan Ini</div>
+                <div class='right-col-card-purchase'>Tahun Ini</div>
               </div>
             </div>
           </div>

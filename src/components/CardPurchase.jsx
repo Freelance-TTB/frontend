@@ -1,4 +1,12 @@
-export default function CardPurchase ({ purchase }) {
+import { useEffect } from 'react'
+import { useState } from 'react'
+
+export default function CardPurchase ({
+  purchase,
+  clickCarouselActive,
+  clickMenuActive
+}) {
+  const [carouselActive, setCarouselActive] = useState(false)
   return (
     <div
       class='card container border-bottom'
@@ -9,6 +17,10 @@ export default function CardPurchase ({ purchase }) {
           type='button'
           class='btn btn-outline-primary mt-4 ml-3'
           style={{ borderRadius: '20%', width: 100 }}
+          onClick={() => {
+            clickMenuActive(false)
+            clickCarouselActive(true)
+          }}
         >
           Top Items
         </button>

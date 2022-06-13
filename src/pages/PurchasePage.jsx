@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardPurchase from '../components/CardPurchase'
-// import CarouselTopItems from '../components/CarouselTopItems'
+import CarouselTopItems from '../components/CarouselTopItems'
 import TableSupplier from '../components/TableSupplier'
 import {
   actionFetchItems,
@@ -11,11 +11,11 @@ import {
 
 export default function PurchasePage () {
   const dispatch = useDispatch()
-  const [isActive, setIsActive] = useState(false)
+  const [isMenuActive, setIsMenuActive] = useState(false)
+  const [isCarouselActive, setIsCarouselActive] = useState(false)
   const [isName, setIsName] = useState('')
   const [isMenuPurchase, setIsMenuPurchase] = useState([])
-  const { suppliers, items } = useSelector(state => state.purchaseState)
-  console.log(items)
+  const { suppliers } = useSelector(state => state.purchaseState)
   useEffect(() => {
     dispatch(actionFetchSuppliers())
     dispatch(actionFetchItems())
@@ -55,16 +55,34 @@ export default function PurchasePage () {
 
     setIsMenuPurchase(dataMenuPurchase)
   }, [])
+
+  function clickCarouselActive (params) {
+    setIsCarouselActive(true)
+  }
+
+  function clickMenuActive (params) {
+    // console.log(params)
+    setIsMenuActive(params)
+  }
+
   return (
-    <div>
+    <div class='container'>
       {/* Total Pembelian // */}
       <div>
-        {isActive === true ? (
+        {isMenuActive === true ? (
           isMenuPurchase
             .filter(purchase => purchase.name === isName)
             .map(purchase => {
-              return <CardPurchase purchase={purchase} />
+              return (
+                <CardPurchase
+                  purchase={purchase}
+                  clickCarouselActive={clickCarouselActive}
+                  clickMenuActive={clickMenuActive}
+                />
+              )
             })
+        ) : isMenuActive === false && isCarouselActive === true ? (
+          <CarouselTopItems />
         ) : (
           <div
             class='card container border-bottom'
@@ -75,6 +93,10 @@ export default function PurchasePage () {
                 type='button'
                 class='btn btn-outline-primary mt-4 ml-3'
                 style={{ borderRadius: '20%', width: 100 }}
+                onClick={() => {
+                  clickCarouselActive(true)
+                  setIsMenuActive(false)
+                }}
               >
                 Top Items
               </button>
@@ -137,7 +159,8 @@ export default function PurchasePage () {
                 name='Pembelian'
                 onClick={() => {
                   setIsName('Pembelian')
-                  setIsActive(true)
+                  clickMenuActive(true)
+                  clickCarouselActive(false)
                 }}
               >
                 Pembelian
@@ -150,7 +173,8 @@ export default function PurchasePage () {
                 name='Hutang'
                 onClick={() => {
                   setIsName('Hutang')
-                  setIsActive(true)
+                  clickMenuActive(true)
+                  clickCarouselActive(false)
                 }}
               >
                 Hutang
@@ -163,7 +187,8 @@ export default function PurchasePage () {
                 name='Pembayaran'
                 onClick={() => {
                   setIsName('Pembayaran')
-                  setIsActive(true)
+                  clickMenuActive(true)
+                  clickCarouselActive(false)
                 }}
               >
                 Pembayaran
@@ -176,7 +201,8 @@ export default function PurchasePage () {
                 name='Uang Muka'
                 onClick={() => {
                   setIsName('Uang Muka')
-                  setIsActive(true)
+                  clickMenuActive(true)
+                  clickCarouselActive(false)
                 }}
               >
                 Uang Muka
@@ -245,15 +271,13 @@ export default function PurchasePage () {
           </table>
         </div>
       </div>
-
       <div
         class='container'
         style={{
           marginBottom: 75
         }}
       >
-        {}
-        {/* <CarouselTopItems /> */}
+        <CarouselTopItems />
       </div>
     </div>
   )

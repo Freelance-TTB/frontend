@@ -16,6 +16,9 @@ import {
 import MenuIcon from '@mui/icons-material/Menu'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import logoTatabuku from '../assets/TATABUKU.png'
+
+const navOption = ['Customer', 'Retur', 'Product', 'Reporting']
 
 export default function Navbar () {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -31,22 +34,26 @@ export default function Navbar () {
     <Box sx={{ flexGrow: 1, mb: 3 }}>
       <AppBar
         position='static'
-        sx={{ borderBottomLeftRadius: 20, borderBottomRightRadius: 20 }}
+        sx={{
+          borderBottomLeftRadius: 30,
+          borderBottomRightRadius: 30,
+          bgcolor: '#205375'
+        }}
       >
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
-
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
             <Link href='/' underline='none' sx={{ color: 'white' }}>
-              TATABUKU
+              <Box
+                component='img'
+                sx={{
+                  // height: '20%',
+                  maxHeight: { xs: 75, md: 75 },
+                  maxWidth: { xs: 350, md: 250 },
+                  m: 1
+                }}
+                alt='The house from the offer.'
+                src={logoTatabuku}
+              />
             </Link>
           </Typography>
 
@@ -56,18 +63,24 @@ export default function Navbar () {
               borderRadius: 10
             }}
           >
-            <Link href='#' underline='hover' sx={{ m: 2 }}>
-              Customer
-            </Link>
-            <Link href='#' underline='hover' sx={{ m: 2 }}>
-              Retur
-            </Link>
-            <Link href='#' underline='hover' sx={{ m: 2 }}>
-              Product
-            </Link>
-            <Link href='#' underline='hover' sx={{ m: 2 }}>
-              Reporting
-            </Link>
+            {navOption.map(name => {
+              return (
+                <Link
+                  href='#'
+                  underline='none'
+                  sx={{
+                    m: 2,
+                    color: 'white',
+                    transition: 'background 0.5s, color 0.5s',
+                    '&:hover': {
+                      color: '#205375'
+                    }
+                  }}
+                >
+                  {name}
+                </Link>
+              )
+            })}
 
             <Button
               id='fade-button'
@@ -75,7 +88,16 @@ export default function Navbar () {
               aria-haspopup='true'
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
-              sx={{ border: 1, borderRadius: 5, mx: 1 }}
+              sx={{
+                border: 1,
+                borderRadius: 5,
+                ml: 1,
+                color: 'white',
+                transition: 'background 0.5s, color 0.5s',
+                '&:hover': {
+                  color: '#205375'
+                }
+              }}
             >
               {(() => {
                 if (open) {
