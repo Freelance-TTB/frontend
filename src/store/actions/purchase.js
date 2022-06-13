@@ -1,5 +1,4 @@
 import { FETCH_SUPPLIERS, FETCH_SUPPLIER, FETCH_TOP_ITEMS } from '../keys'
-
 export function fetchSuppliers (payload) {
   return {
     type: FETCH_SUPPLIERS,
@@ -22,7 +21,7 @@ export function fetchItems (payload) {
 }
 
 export function actionFetchSuppliers () {
-  return function (dispatch) {
+  return async function (dispatch) {
     try {
       const suppliers = [
         {
@@ -68,7 +67,6 @@ export function actionFetchSuppliers () {
           total_deposit: 100000
         }
       ]
-
       dispatch(fetchSuppliers(suppliers))
     } catch (err) {
       console.log(err)
