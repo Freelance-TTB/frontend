@@ -22,7 +22,7 @@ export default function CardPurchase ({ purchase }) {
       } else {
         return (
           <div>
-            
+              
             <div
               style={{
                 textAlign: 'center',
