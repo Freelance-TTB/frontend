@@ -254,7 +254,7 @@ export default function PurchasePage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#026A74',
+                    backgroundColor: '#254364',
                     color: 'white',
                     width: '4%'
                   }}
@@ -264,7 +264,7 @@ export default function PurchasePage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#026A74',
+                    backgroundColor: '#254364',
                     color: 'white',
                     width: '35%'
                   }}
@@ -274,7 +274,7 @@ export default function PurchasePage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#026A74',
+                    backgroundColor: '#254364',
                     color: 'white',
                     width: '35%'
                   }}
@@ -284,7 +284,7 @@ export default function PurchasePage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#026A74',
+                    backgroundColor: '#254364',
                     color: 'white',
                     width: '35%'
                   }}

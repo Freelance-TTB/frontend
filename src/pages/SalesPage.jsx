@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import CardSales from '../components/CardSales'
 import TableSupplier from '../components/TableSupplier'
 import { actionFetchSuppliers } from '../store/actions/purchase'
-import SalesTable from '../components/SalesTable'
 import ChartPenjualan from '../components/ChartPenjualan'
 
 export default function SalesPage () {
@@ -209,7 +208,7 @@ export default function SalesPage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#026A74',
+                    backgroundColor: '#254364',
                     color: 'white',
                     width: '4%'
                   }}
@@ -219,7 +218,7 @@ export default function SalesPage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#026A74',
+                    backgroundColor: '#254364',
                     color: 'white',
                     width: '35%'
                   }}
@@ -229,7 +228,7 @@ export default function SalesPage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#026A74',
+                    backgroundColor: '#254364',
                     color: 'white',
                     width: '35%'
                   }}
@@ -239,7 +238,7 @@ export default function SalesPage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#026A74',
+                    backgroundColor: '#254364',
                     color: 'white',
                     width: '35%'
                   }}

@@ -107,7 +107,7 @@
 
 .table-striped-purchase>tbody>tr:nth-child(odd)>td, 
 .table-striped-purchase>tbody>tr:nth-child(odd)>th {
-    background-color: rgb(168, 240, 230)
+    background-color: #bee5eb
 }
 
 
