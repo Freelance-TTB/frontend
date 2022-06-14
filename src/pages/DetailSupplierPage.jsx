@@ -106,11 +106,19 @@ export default function DetailSupplierPage () {
         aria-label="outlined primary button group" 
         sx={{
           width: '100%',
-          mb: 4
+          mb: 4,
+          borderRadius: 50
         }}
       >
         <Button 
-          sx={{width: '100%'}}
+          sx={{
+            width: '100%',
+            borderRadius: 50,
+            bgcolor: "#2170a5",
+            '&:hover': {
+              background: "#205375",
+            },
+          }}
           name='Penjualan'
           onClick={() => {
             setIsActive(true)
@@ -120,7 +128,13 @@ export default function DetailSupplierPage () {
         >Penjualan</Button>
 
         <Button 
-          sx={{width: '100%'}}
+          sx={{
+            width: '100%',
+            bgcolor: "#2170a5",
+            '&:hover': {
+              background: "#205375",
+            }
+          }}
           name='Hutang'
           onClick={() => {
             setIsActive(true)
@@ -130,7 +144,13 @@ export default function DetailSupplierPage () {
         >Hutang</Button>
 
         <Button 
-          sx={{width: '100%'}}
+          sx={{
+            width: '100%',
+            bgcolor: "#2170a5",
+            '&:hover': {
+              background: "#205375",
+            },
+          }}
           name='Pembayaran'
           onClick={() => {
             setIsActive(true)
@@ -140,7 +160,13 @@ export default function DetailSupplierPage () {
         >Pembayaran</Button>
 
         <Button  
-          sx={{width: '100%'}}
+          sx={{
+            width: '100%',
+            bgcolor: "#2170a5",
+            '&:hover': {
+              background: "#205375",
+            },
+          }}
           name='Uang Muka'
           onClick={() => {
             setIsActive(true)
@@ -150,7 +176,14 @@ export default function DetailSupplierPage () {
         >Uang Muka</Button>
 
         <Button 
-          sx={{width: '100%'}}
+          sx={{
+            width: '100%',
+            borderRadius: 50,
+            bgcolor: "#2170a5",
+            '&:hover': {
+              background: "#205375",
+            },
+          }}
           name='Lunas'
           onClick={() => {
             setIsActive(true)

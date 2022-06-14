@@ -91,7 +91,13 @@ export default function SalesPage () {
               setIsName('Top Item')
               setIsActive(true)
             }}
-            sx={{borderRadius: 50}}
+            sx={{
+              borderRadius: 50,
+              bgcolor: "#2170a5",
+              '&:hover': {
+                background: "#f4a64e",
+              }
+            }}
           >
             Top Item
           </Button>
@@ -228,7 +234,7 @@ export default function SalesPage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#254364',
+                    backgroundColor: '#205375',
                     color: 'white',
                     width: '4%'
                   }}
@@ -238,7 +244,7 @@ export default function SalesPage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#254364',
+                    backgroundColor: '#205375',
                     color: 'white',
                     width: '35%'
                   }}
@@ -248,7 +254,7 @@ export default function SalesPage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#254364',
+                    backgroundColor: '#205375',
                     color: 'white',
                     width: '35%'
                   }}
@@ -258,7 +264,7 @@ export default function SalesPage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#254364',
+                    backgroundColor: '#205375',
                     color: 'white',
                     width: '35%'
                   }}

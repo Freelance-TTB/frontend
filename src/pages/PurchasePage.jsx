@@ -97,7 +97,13 @@ export default function PurchasePage () {
               setIsName('Top Item')
               setIsActive(true)
             }}
-            sx={{borderRadius: 50}}
+            sx={{
+              borderRadius: 50,
+              bgcolor: "#2170a5",
+              '&:hover': {
+                background: "#f4a64e",
+              }
+            }}
           >
             Top Item
           </Button>
@@ -264,7 +270,7 @@ export default function PurchasePage () {
         </div>
       </div>
 
-      <div class='container' style={{ marginBottom: 70, marginTop: 25 }}>
+      <div class='container' style={{ marginBottom: 70, marginTop: 120 }}>
         <h3 style={{ textAlign: 'center', marginTop: 70, marginBottom: 50 }}>List Supplier</h3>
         <div class='table-wrapper-scroll-y my-custom-scrollbar'>
           <table class='table table-borderless table-striped-purchase table-hover'>
@@ -273,7 +279,7 @@ export default function PurchasePage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#254364',
+                    backgroundColor: '#205375',
                     color: 'white',
                     width: '4%'
                   }}
@@ -283,7 +289,7 @@ export default function PurchasePage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#254364',
+                    backgroundColor: '#205375',
                     color: 'white',
                     width: '35%'
                   }}
@@ -293,7 +299,7 @@ export default function PurchasePage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#254364',
+                    backgroundColor: '#205375',
                     color: 'white',
                     width: '35%'
                   }}
@@ -303,7 +309,7 @@ export default function PurchasePage () {
                 <th
                   scope='col'
                   style={{
-                    backgroundColor: '#254364',
+                    backgroundColor: '#205375',
                     color: 'white',
                     width: '35%'
                   }}
