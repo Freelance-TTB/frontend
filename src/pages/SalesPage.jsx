@@ -2,7 +2,10 @@ import {
   Grid,
   Button,
   ButtonGroup,
-  Link
+  Link,
+  Breadcrumbs,
+  Typography,
+  Box
 } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,6 +13,8 @@ import CardSales from '../components/CardSales'
 import TableSupplier from '../components/TableSupplier'
 import { actionFetchSuppliers } from '../store/actions/purchase'
 import ChartPenjualan from '../components/ChartPenjualan'
+import HomeIcon from '@mui/icons-material/Home';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
 export default function SalesPage () {
   const dispatch = useDispatch()
@@ -60,6 +65,21 @@ export default function SalesPage () {
   }, [])
   return (
     <div>
+
+      <div class='container'>
+        <Box sx={{mb: 4}}>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link underline="hover" color="inherit" href="/">
+              <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              Home
+            </Link>
+            <Typography color="text.primary">
+              <PointOfSaleIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              Sales
+            </Typography>
+          </Breadcrumbs>
+        </Box>
+      </div>
 
       <div
         class='card container border-bottom'
