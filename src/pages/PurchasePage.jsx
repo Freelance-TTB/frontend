@@ -1,4 +1,9 @@
-import { Grid } from '@mui/material'
+import { 
+  Grid,
+  Button,
+  ButtonGroup,
+  Link
+} from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardPurchase from '../components/CardPurchase'
@@ -8,6 +13,8 @@ import {
   actionFetchItems,
   actionFetchSuppliers
 } from '../store/actions/purchase'
+import ChartPenjualan from '../components/ChartPenjualan'
+
 
 export default function PurchasePage () {
   const dispatch = useDispatch()
@@ -50,6 +57,9 @@ export default function PurchasePage () {
         subtitle1: 'DP Keluar',
         subtitle2: 'DP Masuk',
         subtitle3: 'Saldo DP'
+      },
+      {
+        name: 'Top Item'
       }
     ]
 
@@ -57,67 +67,75 @@ export default function PurchasePage () {
   }, [])
   return (
     <div>
-      {/* Total Pembelian // */}
-      <div>
-        {isActive === true ? (
-          isMenuPurchase
-            .filter(purchase => purchase.name === isName)
-            .map(purchase => {
-              return <CardPurchase purchase={purchase} />
-            })
-        ) : (
-          <div
-            class='card container border-bottom'
-            style={{ width: '92%', height: 370 }}
-          >
-            <div class='card-body'>
-              <button
-                type='button'
-                class='btn btn-outline-primary mt-4 ml-3'
-                style={{ borderRadius: '20%', width: 100 }}
-              >
-                Top Items
-              </button>
-              <div
-                style={{
-                  textAlign: 'center',
-                  marginTop: 20
-                }}
-              >
-                <h1>Total Pembayaran</h1>
-              </div>
-              <div
-                style={{
-                  marginLeft: 70,
-                  marginTop: 20
-                }}
-              >
-                <div class='left-col-card-purchase'>Hari Ini</div>
-                <div class='center-col-card-purchase'>Bulan ini</div>
-                <div class='right-col-card-purchase'>Tahun Ini</div>
-              </div>
-              <div
-                style={{
-                  marginTop: 90
-                }}
-              >
-                <hr class='hr-line-purchase-card' />
-              </div>
 
-              <div
-                style={{
-                  marginLeft: 70,
-                  marginTop: 38
-                }}
-              >
-                <div class='left-col-card-purchase'>Hari Ini</div>
-                <div class='center-col-card-purchase'>Bulan Ini</div>
-                <div class='right-col-card-purchase'>Tahun Ini</div>
+      <div
+        class='card container border-bottom'
+      >
+        <div class='card-body' style={{ height: 400 }}>
+          <Button 
+            variant="contained" 
+            onClick={() => {
+              setIsName('Top Item')
+              setIsActive(true)
+            }}
+            sx={{borderRadius: 50}}
+          >
+            Top Item
+          </Button>
+
+          <div>
+            {isActive === true ? (
+              isMenuPurchase
+                .filter(purchase => purchase.name === isName)
+                .map(purchase => {
+                  return <CardPurchase purchase={purchase} />
+                })
+            ) : (
+              <div>
+            
+                <div
+                  style={{
+                    textAlign: 'center',
+                    marginTop: 20
+                  }}
+                >
+                  <h1>Total Pembayaran</h1>
+                </div>
+
+                <div
+                  style={{
+                    marginLeft: 70,
+                    marginTop: 20
+                  }}
+                >
+                  <div class='left-col-card-purchase'>Hari Ini</div>
+                  <div class='center-col-card-purchase'>Bulan Ini</div>
+                  <div class='right-col-card-purchase'>Tahun Ini</div>
+                </div>
+                <div
+                  style={{
+                    marginTop: 90
+                  }}
+                >
+                  <hr class='hr-line-purchase-card' />
+                </div>
+        
+                <div
+                  style={{
+                    marginLeft: 70,
+                    marginTop: 38
+                  }}
+                >
+                  <div class='left-col-card-purchase'>Rp.0.00,-</div>
+                  <div class='center-col-card-purchase'>Rp.0.00,-</div>
+                  <div class='right-col-card-purchase'>Rp.0.00,-</div>
+                </div>
               </div>
-            </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
+
       <div
         class='container'
         style={{
@@ -127,72 +145,110 @@ export default function PurchasePage () {
         <div>
           <Grid
             container
-            rowSpacing={3}
-            columnSpacing={{ xs: 2, sm: 2, md: 3 }}
+            sx={{ 
+              bgcolor: "#2170a5", 
+              borderRadius: 20
+            }}
           >
-            <Grid item xs={6}>
-              <button
-                type='button'
-                class='btn btn-success btn-menu-purchase'
+            <Grid item xs={3}>
+              <Button
+                variant="contained"
                 name='Pembelian'
                 onClick={() => {
                   setIsName('Pembelian')
                   setIsActive(true)
                 }}
+                sx={{
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5",
+                  '&:hover': {
+                    background: "#205375",
+                  },
+                  borderTopLeftRadius: 20,
+                  borderBottomLeftRadius: 20,
+                  borderTopRightRadius: 0, 
+                  borderBottomRightRadius: 0
+                }}
               >
                 Pembelian
-              </button>
+              </Button>
             </Grid>
-            <Grid item xs={6}>
-              <button
-                type='button'
-                class='btn btn-danger btn-menu-purchase'
+            <Grid item xs={3}>
+              <Button
+                variant="contained"
                 name='Hutang'
                 onClick={() => {
                   setIsName('Hutang')
                   setIsActive(true)
                 }}
+                sx={{ 
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5",
+                  '&:hover': {
+                    background: "#205375",
+                  }, 
+                  borderRadius: 0
+                }}
               >
                 Hutang
-              </button>
+              </Button>
             </Grid>
-            <Grid item xs={6}>
-              <button
-                type='button'
-                class='btn btn-primary btn-menu-purchase'
+            <Grid item xs={3}>
+              <Button
+                variant="contained"
                 name='Pembayaran'
                 onClick={() => {
                   setIsName('Pembayaran')
                   setIsActive(true)
                 }}
+                sx={{ 
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5", 
+                  '&:hover': {
+                    background: "#205375",
+                  },
+                  borderRadius: 0
+                }}
               >
                 Pembayaran
-              </button>
+              </Button>
             </Grid>
-            <Grid item xs={6}>
-              <button
-                type='button'
-                class='btn btn-info btn-menu-purchase'
+            <Grid item xs={3}>
+              <Button
+                variant="contained"
                 name='Uang Muka'
                 onClick={() => {
                   setIsName('Uang Muka')
                   setIsActive(true)
                 }}
+                sx={{ 
+                  width: '100%', 
+                  boxShadow: "none",
+                  bgcolor: "#2170a5", 
+                  '&:hover': {
+                    background: "#205375",
+                  },
+                  borderTopLeftRadius: 0,
+                  borderBottomLeftRadius: 0,
+                  borderTopRightRadius: 20, 
+                  borderBottomRightRadius: 20
+                }}
               >
                 Uang Muka
-              </button>
+              </Button>
             </Grid>
           </Grid>
-          <h3 style={{ textAlign: 'center', marginTop: 10 }}>List Supplier</h3>
+          
         </div>
       </div>
 
       <div class='container' style={{ marginBottom: 70, marginTop: 25 }}>
+        <h3 style={{ textAlign: 'center', marginTop: 70, marginBottom: 50 }}>List Supplier</h3>
         <div class='table-wrapper-scroll-y my-custom-scrollbar'>
-          <table
-            class='table table-borderless table-striped-purchase
- table-hover'
-          >
+          <table class='table table-borderless table-striped-purchase table-hover'>
             <thead>
               <tr>
                 <th
@@ -244,16 +300,6 @@ export default function PurchasePage () {
             </tbody>
           </table>
         </div>
-      </div>
-
-      <div
-        class='container'
-        style={{
-          marginBottom: 75
-        }}
-      >
-        {}
-        {/* <CarouselTopItems /> */}
       </div>
     </div>
   )
