@@ -14,7 +14,7 @@ import PurchaseOrderPage from './pages/PurchaseOrderPage'
 function App () {
   return (
     <Router>
-      <div class="App">
+      <div class='App'>
         <Box sx={{ bgcolor: '#EFEFEF' }}>
           <Navbar />
           <Routes>
@@ -47,7 +47,7 @@ function App () {
             </Route>
           </Routes>
         </Box>
-        <Box sx={{height: 50}}></Box>
+        <Box sx={{ height: 50 }}></Box>
       </div>
     </Router>
   )

@@ -1,5 +1,4 @@
 import { FETCH_SUPPLIERS, FETCH_SUPPLIER, FETCH_TOP_ITEMS } from '../keys'
-
 export function fetchSuppliers (payload) {
   return {
     type: FETCH_SUPPLIERS,
@@ -22,7 +21,7 @@ export function fetchItems (payload) {
 }
 
 export function actionFetchSuppliers () {
-  return function (dispatch) {
+  return async function (dispatch) {
     try {
       const suppliers = [
         {
@@ -68,7 +67,6 @@ export function actionFetchSuppliers () {
           total_deposit: 100000
         }
       ]
-
       dispatch(fetchSuppliers(suppliers))
     } catch (err) {
       console.log(err)
@@ -98,7 +96,7 @@ export function actionFetchItems () {
           price: 50000,
           sold_unit: 50,
           image:
-            'https://images.tokopedia.net/img/cache/500-square/product-1/2019/10/21/778877/778877_23018427-2a04-4d03-b4da-a4caea42c7c0_1080_1080.jpg'
+            'https://images.tokopedia.net/img/cache/500-square/VqbcmM/2020/8/9/d00ba2ba-0863-45b3-ac71-b88132245070.jpg'
         },
         {
           id: 2,
@@ -114,7 +112,7 @@ export function actionFetchItems () {
           price: 1500000,
           sold_unit: 20,
           image:
-            'https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw04b3c19c/images/600000/606028.jpg?sfrm=jpg'
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiTHJq11V0fjxUTIPcXMdDYaTtviED9m6aeQ&usqp=CAU'
         },
         {
           id: 4,

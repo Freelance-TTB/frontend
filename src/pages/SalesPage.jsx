@@ -219,7 +219,7 @@ export default function SalesPage () {
         </div>
       </div>
 
-      <div class='container' style={{ marginBottom: 70, marginTop: 25 }}>
+      <div class='container' style={{ marginBottom: 70, marginTop: 120 }}>
         <h3 style={{ textAlign: 'center', marginTop: 70, marginBottom: 50 }}>List Supplier</h3>
         <div class='table-wrapper-scroll-y my-custom-scrollbar'>
           <table class='table table-borderless table-striped-purchase table-hover'>
