@@ -29,24 +29,25 @@ export default function DetailSupplierPage () {
   const [isActive, setIsActive] = useState(false)
   const [isMenuName, setIsMenuName] = useState('')
   const [isListMenuName, setIsListMenuName] = useState('')
+  const [isListTable, setIsListTable] = useState('')
 
   useEffect(() => {
     let menuData = [
       {
         name: 'Penjualan',
         title: 'Total Penjualan',
-        list_menu: 'List Penjualan',
+        list_menu: 'List DP',
         subtitle1: 'Hari Ini',
         subtitle2: 'Bulan Ini',
         subtitle3: 'Tahun Ini',
         image: cashier
       },
       {
-        name: 'Hutang',
-        title: 'Total Hutang',
-        list_menu: 'List Hutang',
-        subtitle1: '0 Hari ini',
-        subtitle2: '0-30 Hari ini',
+        name: 'Uang Saya',
+        title: 'Total Uang Saya',
+        list_menu: 'List Piutang',
+        subtitle1: 'Belum Jatuh Tempo',
+        subtitle2: '0-30 Hari',
         subtitle3: '> 30 Hari',
         image: debt
       },
@@ -70,7 +71,7 @@ export default function DetailSupplierPage () {
       },
       {
         name: 'Uang Muka',
-        title: 'Uang Muka',
+        title: 'Total Uang Muka',
         list_menu: 'List DP',
         subtitle1: 'DP Keluar',
         subtitle2: 'DP Masuk',
@@ -124,6 +125,7 @@ export default function DetailSupplierPage () {
             setIsActive(true)
             setIsMenuName('Penjualan')
             setIsListMenuName('Total Penjualan')
+            setIsListTable('List DP')
           }}
         >Penjualan</Button>
 
@@ -135,13 +137,14 @@ export default function DetailSupplierPage () {
               background: "#205375",
             }
           }}
-          name='Hutang'
+          name='Uang Saya'
           onClick={() => {
             setIsActive(true)
-            setIsMenuName('Hutang')
-            setIsListMenuName('Total Hutang')
+            setIsMenuName('Uang Saya')
+            setIsListMenuName('Total Uang Saya')
+            setIsListTable('List Piutang')
           }}
-        >Hutang</Button>
+        >Uang Saya</Button>
 
         <Button 
           sx={{
@@ -156,6 +159,7 @@ export default function DetailSupplierPage () {
             setIsActive(true)
             setIsMenuName('Pembayaran')
             setIsListMenuName('Total Pembayaran')
+            setIsListTable('List Pembayaran')
           }}
         >Pembayaran</Button>
 
@@ -172,6 +176,7 @@ export default function DetailSupplierPage () {
             setIsActive(true)
             setIsMenuName('Uang Muka')
             setIsListMenuName('Total Uang Muka')
+            setIsListTable('List Uang Muka')
           }}
         >Uang Muka</Button>
 
@@ -189,6 +194,7 @@ export default function DetailSupplierPage () {
             setIsActive(true)
             setIsMenuName('Lunas')
             setIsListMenuName('Total Lunas')
+            setIsListTable('List Lunas')
           }}
         >Lunas</Button>
       </ButtonGroup>
@@ -219,9 +225,9 @@ export default function DetailSupplierPage () {
                           marginTop: 20
                         }}
                       >
-                        <div class='left-col-card-purchase'>Hari Ini</div>
-                        <div class='center-col-card-purchase'>Bulan ini</div>
-                        <div class='right-col-card-purchase'>Tahun Ini</div>
+                        <div class='left-col-card-purchase'>{menu.subtitle1}</div>
+                        <div class='center-col-card-purchase'>{menu.subtitle2}</div>
+                        <div class='right-col-card-purchase'>{menu.subtitle3}</div>
                       </div>
                       <div
                         style={{
@@ -297,7 +303,7 @@ export default function DetailSupplierPage () {
           marginTop: 40
         }}
       >
-        {isMenuName === 'Hutang' ? null : isMenuName === 'Penjualan' ? (
+        {isMenuName === 'Uang Saya' ? null : isMenuName === 'Penjualan' ? (
           <div>
             <div class='col-md-12 text-right d-flex justify-content-end'>
               <Button 
@@ -311,7 +317,7 @@ export default function DetailSupplierPage () {
                   }, 
                 }}
               >
-                Retur Barang
+                Retur DP
               </Button>
               <Button
                 variant="contained"
@@ -326,7 +332,7 @@ export default function DetailSupplierPage () {
                   }, 
                 }}
               >
-                Tambah Order
+                Tambah DP
               </Button>
             </div>
           </div>
@@ -344,7 +350,7 @@ export default function DetailSupplierPage () {
                   }, 
                 }}
               >
-                Retur Barang
+                Retur DP
               </Button>
               <Button
                 variant="contained"
@@ -359,13 +365,13 @@ export default function DetailSupplierPage () {
                   }, 
                 }}
               >
-                Tambah Order
+                Tambah DP
               </Button>
             </div>
           </div>
         ) : null}
         <h3 style={{ textAlign: 'center', marginTop: 100 }}>
-          {isListMenuName.length === 0 ? 'Total Penjualan' : isListMenuName}
+          {isListMenuName.length === 0 ? 'List DP' : isListTable}
         </h3>
       </div>
       <div class='container' style={{ marginBottom: 70, marginTop: 65 }}>
@@ -423,7 +429,7 @@ export default function DetailSupplierPage () {
                     width: '10%'
                   }}
                 >
-                  {isMenuName === 'Hutang' ? 'Piutang' : 'Total'}
+                  {isMenuName === 'Uang Saya' ? 'Piutang' : 'Total'}
                 </th>
                 <th
                   scope='col'

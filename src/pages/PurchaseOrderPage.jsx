@@ -1,3 +1,17 @@
+import {
+  Paper,
+  Box,
+  Button,
+  Card,
+  InputBase,
+  Divider,
+  IconButton,
+  Typography
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import DirectionsIcon from '@mui/icons-material/Directions';
+
 export default function PurchaseOrderPage () {
   return (
     <div class='container'>
@@ -49,16 +63,32 @@ export default function PurchaseOrderPage () {
       </div>
       <div
         class='card container border-bottom'
-        style={{ width: '98%', height: 370, marginTop: 28 }}
+        style={{ width: '98%', marginTop: 28 }}
       >
+        <Box sx={{my: 3, mx: 1}}>
+          <Paper
+            component="form"
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%' }}
+          >
+            <InputBase
+              sx={{ ml: 1, flex: 1 }}
+              placeholder="Search"
+              inputProps={{ 'aria-label': 'search google maps' }}
+            />
+            <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+              <SearchIcon />
+            </IconButton>
+            <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+          </Paper>
+        </Box>
         <div>
           <div
             class='table-wrapper-scroll-y my-custom-scrollbar-order'
             style={{
-              marginTop: 190,
               width: '100%'
             }}
           >
+
             <table class='table border-bottom table-striped-purchased table-hover'>
               <thead>
                 <tr>
@@ -67,7 +97,7 @@ export default function PurchaseOrderPage () {
                     style={{
                       backgroundColor: 'white',
                       color: 'black',
-                      width: '35%'
+                      width: '25%'
                     }}
                   >
                     Produk Dipesan
@@ -149,9 +179,26 @@ export default function PurchaseOrderPage () {
         </div>
       </div>
 
+      <div 
+        class='card container border-bottom'
+        style={{ width: '98%', marginTop: 28 }}
+      >
+        <Box sx={{py: 1, px: 2}}>
+          <Typography sx={{py: 1, fontWeight: 'bold'}}>
+            Tanggal :
+          </Typography>
+          <Typography sx={{py: 1, fontWeight: 'bold'}}>
+            Note :
+          </Typography>
+          <Typography sx={{py: 1, fontWeight: 'bold'}}>
+            Voucher Number :
+          </Typography>
+        </Box>
+      </div>
+
       <div
         class='card container border-bottom'
-        style={{ width: '98%', height: 260, marginTop: 28, marginBottom: 70 }}
+        style={{ width: '98%', marginTop: 28, marginBottom: 70 }}
       >
         <div
           style={{
@@ -164,7 +211,7 @@ export default function PurchaseOrderPage () {
             style={{
               float: 'left',
               textAlign: 'left',
-              width: '35%'
+              width: '25%'
             }}
           >
             Total Unit
@@ -175,7 +222,7 @@ export default function PurchaseOrderPage () {
             style={{
               float: 'left',
               textAlign: 'left',
-              width: '35%'
+              width: '25%'
             }}
           >
             Subtotal
@@ -186,7 +233,7 @@ export default function PurchaseOrderPage () {
             style={{
               float: 'left',
               textAlign: 'left',
-              width: '35%'
+              width: '25%'
             }}
           >
             PPN
@@ -197,24 +244,64 @@ export default function PurchaseOrderPage () {
             style={{
               float: 'left',
               textAlign: 'left',
-              width: '35%'
+              width: '25%'
             }}
           >
             Total
           </h5>
           <h6>Rp. 240.000,-</h6>
         </div>
-        <div class='col-md-12 text-right'>
-          <button type='button' class='btn btn-info mr-3'>
-            Retur Barang
-          </button>
-          <button type='button' class='btn btn-primary mr-3'>
-            Tambah Order
-          </button>
-          <button type='button' class='btn btn-primary'>
-            Tambah Order
-          </button>
-        </div>
+        
+        <Box 
+          sx={{
+            my: 2,
+            display: 'flex',
+            justifyContent: 'flex-end'
+          }}
+        >
+          <Button 
+            variant="contained"
+            sx={{ 
+              mr: 2,
+              backgroundColor: '#f4a64e',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: "#bc8342",
+              }, 
+              textTransform: 'none'
+            }}
+          >
+            Kirim Barang
+          </Button>
+          <Button
+            variant="contained"
+            // onClick={() => {
+            //   navigate('/order_purchases')
+            // }}
+            sx={{ 
+              mr: 2,
+              backgroundColor: '#2763a6',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: "#254364",
+              }, 
+              textTransform: 'none'
+            }}
+          >
+            Simpan Dulu
+          </Button>
+          <Button
+            variant="contained"
+            color="error"
+            sx={{ 
+              color: 'white',
+              textTransform: 'none'
+            }}
+          >
+            Batalkan
+          </Button>
+        </Box>
+
       </div>
     </div>
   )

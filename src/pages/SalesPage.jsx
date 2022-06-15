@@ -5,7 +5,13 @@ import {
   Link,
   Breadcrumbs,
   Typography,
-  Box
+  Box,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle
 } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,6 +21,7 @@ import { actionFetchSuppliers } from '../store/actions/purchase'
 import ChartPenjualan from '../components/ChartPenjualan'
 import HomeIcon from '@mui/icons-material/Home';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function SalesPage () {
   const dispatch = useDispatch()
@@ -22,6 +29,7 @@ export default function SalesPage () {
   const [isName, setIsName] = useState('')
   const [isMenuPurchase, setIsMenuPurchase] = useState([])
   const { suppliers } = useSelector(state => state.purchaseState)
+  
   useEffect(() => {
     dispatch(actionFetchSuppliers())
   }, [])
@@ -63,6 +71,17 @@ export default function SalesPage () {
 
     setIsMenuPurchase(dataMenuPurchase)
   }, [])
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
 
@@ -225,8 +244,39 @@ export default function SalesPage () {
         </div>
       </div>
 
-      <div class='container' style={{ marginBottom: 70, marginTop: 120 }}>
-        <h3 style={{ textAlign: 'center', marginTop: 70, marginBottom: 50 }}>List Supplier</h3>
+      <div class='container' style={{ marginBottom: 70, marginTop: 70 }}>
+        <h3 style={{ textAlign: 'center', marginTop: 70, marginBottom: 20 }}>List Supplier</h3>
+        
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Button variant="contained" sx={{mb: 2}}  onClick={handleClickOpen}>
+            <AddIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            Customer
+          </Button>
+
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Subscribe</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                To subscribe to this website, please enter your email address here. We
+                will send updates occasionally.
+              </DialogContentText>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="name"
+                label="Email Address"
+                type="email"
+                fullWidth
+                variant="standard"
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button onClick={handleClose}>Subscribe</Button>
+            </DialogActions>
+          </Dialog>
+        </Box>
+
         <div class='table-wrapper-scroll-y my-custom-scrollbar'>
           <table class='table table-borderless table-striped-purchase table-hover'>
             <thead>
