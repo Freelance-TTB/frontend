@@ -27,7 +27,6 @@ export default function PurchasePage () {
   const [isActive, setIsActive] = useState(false)
   const [isName, setIsName] = useState('')
   const [isMenuPurchase, setIsMenuPurchase] = useState([])
-  const [isSearch, setIsSearch] = useState('')
   const { suppliers } = useSelector(state => state.purchaseState)
   useEffect(() => {
     dispatch(actionFetchSuppliers())
@@ -87,7 +86,7 @@ export default function PurchasePage () {
           <Breadcrumbs aria-label='breadcrumb'>
             <Link underline='hover' color='inherit' href='/'>
               <HomeIcon sx={{ mr: 0.5 }} fontSize='inherit' />
-              Home
+              Homepage
             </Link>
             <Typography color='text.primary'>
               <ShoppingCartIcon sx={{ mr: 0.5 }} fontSize='inherit' />
