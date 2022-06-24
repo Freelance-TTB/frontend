@@ -130,3 +130,80 @@ export function actionFetchItems () {
     }
   }
 }
+
+export function actionFetchSortSuppliers (name, typeSort) {
+  return function (dispatch, getState) {
+    try {
+      const { suppliers } = getState().purchaseState
+      const sortSuppliers = suppliers.sort((a, b) => {
+        if (name === 'alamat' || name === 'nama') {
+          let fa = a[name].toLowerCase()
+          let fb = b[name].toLowerCase()
+          if (typeSort === 'DESC') {
+            if (fb < fa) {
+              return -1
+            }
+            if (fb > fa) {
+              return 1
+            }
+          } else {
+            if (fa < fb) {
+              return -1
+            }
+            if (fa > fb) {
+              return 1
+            }
+          }
+        } else if (name === 'total_deposit') {
+          if (typeSort === 'DESC') {
+            return b.total_deposit - a.total_deposit
+          } else {
+            return a.total_deposit - b.total_deposit
+          }
+        }
+        return 0
+      })
+
+      dispatch(fetchSuppliers(sortSuppliers))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
+export function actionAddCustomer (payload) {
+  return function (dispatch, getState) {
+    try {
+      let { suppliers } = getState().purchaseState
+      const { nama, alamat, total_deposit } = payload
+      const payloadCustomer = {
+        id: suppliers[suppliers.length - 1].id + 1,
+        nama: nama,
+        alamat: alamat,
+        total_deposit: +total_deposit
+      }
+      suppliers = [...suppliers, payloadCustomer]
+      dispatch(fetchSuppliers(suppliers))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
+export function actionSearchSupplier (payload) {
+  return function (dispatch, getState) {
+    try {
+      let { suppliers } = getState().purchaseState
+      const searchSuppliers = suppliers.filter(supplier => {
+        return supplier.nama.indexOf(payload) !== -1
+      })
+
+      const newSearchSupplier = searchSuppliers
+
+      console.log('SUPPLIERS >>>>>>>>>>>', newSearchSupplier)
+      // dispatch(fetchSuppliers(newSearchSupplier))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}

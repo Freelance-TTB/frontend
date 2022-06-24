@@ -1,7 +1,6 @@
-import { 
+import {
   Grid,
   Button,
-  ButtonGroup,
   Link,
   Breadcrumbs,
   Typography,
@@ -10,26 +9,33 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle
 } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardSales from '../components/CardSales'
 import TableSupplier from '../components/TableSupplier'
-import { actionFetchSuppliers } from '../store/actions/purchase'
+import {
+  actionAddCustomer,
+  actionFetchSortSuppliers,
+  actionFetchSuppliers
+} from '../store/actions/purchase'
 import ChartPenjualan from '../components/ChartPenjualan'
-import HomeIcon from '@mui/icons-material/Home';
-import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
-import AddIcon from '@mui/icons-material/Add';
+import HomeIcon from '@mui/icons-material/Home'
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale'
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward'
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
+import AddIcon from '@mui/icons-material/Add'
 
 export default function SalesPage () {
   const dispatch = useDispatch()
   const [isActive, setIsActive] = useState(false)
   const [isName, setIsName] = useState('')
   const [isMenuPurchase, setIsMenuPurchase] = useState([])
+  const [open, setOpen] = useState(false)
+  const [isCustomer, setIsCustomer] = useState({})
   const { suppliers } = useSelector(state => state.purchaseState)
-  
+
   useEffect(() => {
     dispatch(actionFetchSuppliers())
   }, [])
@@ -72,49 +78,60 @@ export default function SalesPage () {
     setIsMenuPurchase(dataMenuPurchase)
   }, [])
 
-  const [open, setOpen] = useState(false);
-
   const handleClickOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
+
+  function clickSortSupplier (name, typeSort) {
+    dispatch(actionFetchSortSuppliers(name, typeSort))
+  }
+
+  function handleChange (e) {
+    setIsCustomer({
+      ...isCustomer,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  function onHandleAddCustomer () {
+    dispatch(actionAddCustomer(isCustomer))
+    setOpen(false)
+  }
 
   return (
     <div>
-
       <div class='container'>
-        <Box sx={{mb: 4}}>
-          <Breadcrumbs aria-label="breadcrumb">
-            <Link underline="hover" color="inherit" href="/">
-              <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+        <Box sx={{ mb: 4 }}>
+          <Breadcrumbs aria-label='breadcrumb'>
+            <Link underline='hover' color='inherit' href='/'>
+              <HomeIcon sx={{ mr: 0.5 }} fontSize='inherit' />
               Home
             </Link>
-            <Typography color="text.primary">
-              <PointOfSaleIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            <Typography color='text.primary'>
+              <PointOfSaleIcon sx={{ mr: 0.5 }} fontSize='inherit' />
               Sales
             </Typography>
           </Breadcrumbs>
         </Box>
       </div>
 
-      <div
-        class='card container border-bottom'
-      >
+      <div class='card container border-bottom'>
         <div class='card-body' style={{ height: 400 }}>
-          <Button 
-            variant="contained" 
+          <Button
+            variant='contained'
             onClick={() => {
               setIsName('Top Item')
               setIsActive(true)
             }}
             sx={{
               borderRadius: 50,
-              bgcolor: "#2170a5",
+              bgcolor: '#2170a5',
               '&:hover': {
-                background: "#f4a64e",
+                background: '#f4a64e'
               }
             }}
           >
@@ -129,7 +146,7 @@ export default function SalesPage () {
                   return <CardSales purchase={purchase} />
                 })
             ) : (
-              <ChartPenjualan/>
+              <ChartPenjualan />
             )}
           </div>
         </div>
@@ -144,29 +161,29 @@ export default function SalesPage () {
         <div>
           <Grid
             container
-            sx={{ 
-              bgcolor: "#2170a5", 
+            sx={{
+              bgcolor: '#2170a5',
               borderRadius: 20
             }}
           >
             <Grid item xs={3}>
               <Button
-                variant="contained"
+                variant='contained'
                 name='Penjualan'
                 onClick={() => {
                   setIsName('Penjualan')
                   setIsActive(true)
                 }}
                 sx={{
-                  width: '100%', 
-                  boxShadow: "none",
-                  bgcolor: "#2170a5",
+                  width: '100%',
+                  boxShadow: 'none',
+                  bgcolor: '#2170a5',
                   '&:hover': {
-                    background: "#205375",
+                    background: '#205375'
                   },
                   borderTopLeftRadius: 20,
                   borderBottomLeftRadius: 20,
-                  borderTopRightRadius: 0, 
+                  borderTopRightRadius: 0,
                   borderBottomRightRadius: 0
                 }}
               >
@@ -175,19 +192,19 @@ export default function SalesPage () {
             </Grid>
             <Grid item xs={3}>
               <Button
-                variant="contained"
+                variant='contained'
                 name='Uang Saya'
                 onClick={() => {
                   setIsName('Uang Saya')
                   setIsActive(true)
                 }}
-                sx={{ 
-                  width: '100%', 
-                  boxShadow: "none",
-                  bgcolor: "#2170a5",
+                sx={{
+                  width: '100%',
+                  boxShadow: 'none',
+                  bgcolor: '#2170a5',
                   '&:hover': {
-                    background: "#205375",
-                  }, 
+                    background: '#205375'
+                  },
                   borderRadius: 0
                 }}
               >
@@ -196,18 +213,18 @@ export default function SalesPage () {
             </Grid>
             <Grid item xs={3}>
               <Button
-                variant="contained"
+                variant='contained'
                 name='Pembayaran'
                 onClick={() => {
                   setIsName('Pembayaran')
                   setIsActive(true)
                 }}
-                sx={{ 
-                  width: '100%', 
-                  boxShadow: "none",
-                  bgcolor: "#2170a5", 
+                sx={{
+                  width: '100%',
+                  boxShadow: 'none',
+                  bgcolor: '#2170a5',
                   '&:hover': {
-                    background: "#205375",
+                    background: '#205375'
                   },
                   borderRadius: 0
                 }}
@@ -217,22 +234,22 @@ export default function SalesPage () {
             </Grid>
             <Grid item xs={3}>
               <Button
-                variant="contained"
+                variant='contained'
                 name='Uang Muka'
                 onClick={() => {
                   setIsName('Uang Muka')
                   setIsActive(true)
                 }}
-                sx={{ 
-                  width: '100%', 
-                  boxShadow: "none",
-                  bgcolor: "#2170a5", 
+                sx={{
+                  width: '100%',
+                  boxShadow: 'none',
+                  bgcolor: '#2170a5',
                   '&:hover': {
-                    background: "#205375",
+                    background: '#205375'
                   },
                   borderTopLeftRadius: 0,
                   borderBottomLeftRadius: 0,
-                  borderTopRightRadius: 20, 
+                  borderTopRightRadius: 20,
                   borderBottomRightRadius: 20
                 }}
               >
@@ -240,39 +257,60 @@ export default function SalesPage () {
               </Button>
             </Grid>
           </Grid>
-          
         </div>
       </div>
 
       <div class='container' style={{ marginBottom: 70, marginTop: 70 }}>
-        <h3 style={{ textAlign: 'center', marginTop: 70, marginBottom: 20 }}>List Supplier</h3>
-        
+        <h3 style={{ textAlign: 'center', marginTop: 70, marginBottom: 20 }}>
+          List Supplier
+        </h3>
+
         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button variant="contained" sx={{mb: 2}}  onClick={handleClickOpen}>
-            <AddIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+          <Button variant='contained' sx={{ mb: 2 }} onClick={handleClickOpen}>
+            <AddIcon sx={{ mr: 0.5 }} fontSize='inherit' />
             Customer
           </Button>
 
           <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Subscribe</DialogTitle>
+            <DialogTitle>Create Customer</DialogTitle>
             <DialogContent>
-              <DialogContentText>
-                To subscribe to this website, please enter your email address here. We
-                will send updates occasionally.
-              </DialogContentText>
               <TextField
                 autoFocus
-                margin="dense"
-                id="name"
-                label="Email Address"
-                type="email"
+                margin='dense'
+                id='name'
+                name='nama'
+                label='Nama'
+                type='text'
+                onChange={e => handleChange(e)}
                 fullWidth
-                variant="standard"
+                variant='standard'
+              />
+              <TextField
+                autoFocus
+                margin='dense'
+                id='alamat'
+                label='Alamat'
+                name='alamat'
+                type='text'
+                onChange={e => handleChange(e)}
+                fullWidth
+                variant='standard'
+              />
+              <TextField
+                autoFocus
+                margin='dense'
+                id='total_deposit'
+                label='Total Deposit'
+                type='number'
+                name='total_deposit'
+                onChange={e => handleChange(e)}
+                fullWidth
+                variant='standard'
               />
             </DialogContent>
             <DialogActions>
               <Button onClick={handleClose}>Cancel</Button>
-              <Button onClick={handleClose}>Subscribe</Button>
+              <Button onClick={onHandleAddCustomer}>Create</Button>
             </DialogActions>
           </Dialog>
         </Box>
@@ -280,13 +318,14 @@ export default function SalesPage () {
         <div class='table-wrapper-scroll-y my-custom-scrollbar'>
           <table class='table table-borderless table-striped-purchase table-hover'>
             <thead>
+              ;
               <tr>
                 <th
                   scope='col'
                   style={{
                     backgroundColor: '#205375',
                     color: 'white',
-                    width: '4%'
+                    width: '6%'
                   }}
                 >
                   No
@@ -300,6 +339,24 @@ export default function SalesPage () {
                   }}
                 >
                   Nama
+                  <ArrowUpwardIcon
+                    onClick={() => {
+                      clickSortSupplier('nama', 'DESC')
+                    }}
+                    style={{
+                      float: 'right',
+                      width: '5%'
+                    }}
+                  />
+                  <ArrowDownwardIcon
+                    onClick={() => {
+                      clickSortSupplier('nama', 'ASC')
+                    }}
+                    style={{
+                      float: 'right',
+                      width: '8%'
+                    }}
+                  />
                 </th>
                 <th
                   scope='col'
@@ -310,6 +367,24 @@ export default function SalesPage () {
                   }}
                 >
                   Alamat
+                  <ArrowUpwardIcon
+                    onClick={() => {
+                      clickSortSupplier('alamat', 'DESC')
+                    }}
+                    style={{
+                      float: 'right',
+                      width: '5%'
+                    }}
+                  />
+                  <ArrowDownwardIcon
+                    onClick={() => {
+                      clickSortSupplier('alamat', 'ASC')
+                    }}
+                    style={{
+                      float: 'right',
+                      width: '8%'
+                    }}
+                  />
                 </th>
                 <th
                   scope='col'
@@ -320,6 +395,24 @@ export default function SalesPage () {
                   }}
                 >
                   Total Deposit
+                  <ArrowUpwardIcon
+                    onClick={() => {
+                      clickSortSupplier('total_deposit', 'DESC')
+                    }}
+                    style={{
+                      float: 'right',
+                      width: '15%'
+                    }}
+                  />
+                  <ArrowDownwardIcon
+                    onClick={() => {
+                      clickSortSupplier('total_deposit', 'ASC')
+                    }}
+                    style={{
+                      float: 'right',
+                      width: '8%'
+                    }}
+                  />
                 </th>
               </tr>
             </thead>

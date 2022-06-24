@@ -12,7 +12,7 @@ export default function TableSupplier ({ supplier }) {
       </th>
       <td>{supplier.nama}</td>
       <td>{supplier.alamat}</td>
-      <td>{supplier.total_deposit}</td>
+      <td>Rp.{supplier.total_deposit.toLocaleString()},-</td>
     </tr>
   )
 }
